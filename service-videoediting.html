@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>farrhan. — Video Editing Service</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #0B1215;
+      --bg-card: #ffffff;
+      --bg-dark: #111111;
+      --text:    #000000;
+      --text-light: #ffffff;
+      --border:  #0B1215;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text);
+      font-family: 'Space Mono', monospace;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    /* Grid line background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 500px;
+      background-color: var(--bg-card);
+      border: 3px solid var(--border);
+    }
+
+    /* PAGE HEADER (white) */
+    .page-header {
+      padding: 1.5rem;
+      border-bottom: 3px solid var(--border);
+      text-align: center;
+      background: var(--bg-card);
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+    }
+
+    .portfolio-link {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.7rem;
+      color: var(--text);
+      text-decoration: underline;
+    }
+
+    .portfolio-link:hover { opacity: 0.6; }
+
+    /* DARK SECTION (Terms) */
+    .dark-section {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      padding: 1.25rem;
+      border-bottom: 3px solid var(--border);
+    }
+
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .dark-section p {
+      font-size: 0.72rem;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+
+    .dark-section p:last-child { margin-bottom: 0; }
+
+    .sub-heading {
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      margin-top: 0.75rem;
+    }
+
+    .dark-section ul {
+      list-style: disc;
+      padding-left: 1.25rem;
+      font-size: 0.72rem;
+      line-height: 1.7;
+    }
+
+    /* WHITE SECTION (Rates) */
+    .rates-section {
+      background-color: var(--bg-card);
+      padding: 1.25rem;
+      border-bottom: 3px solid var(--border);
+    }
+
+    .rates-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-align: center;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      padding: 0.6rem;
+      margin: -1.25rem -1.25rem 1.25rem -1.25rem;
+    }
+
+    .rate-tier {
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .rate-tier:last-of-type {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .tier-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.1rem;
+    }
+
+    .tier-subtitle {
+      font-size: 0.7rem;
+      font-style: italic;
+      color: #555;
+      margin-bottom: 0.25rem;
+    }
+
+    .tier-price {
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .tier-desc {
+      font-size: 0.72rem;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* Add-ons */
+    .addons {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ddd;
+    }
+
+    .addons .tier-title { margin-bottom: 0.4rem; }
+
+    .addons ul {
+      list-style: disc;
+      padding-left: 1.25rem;
+      font-size: 0.72rem;
+      line-height: 1.7;
+    }
+
+    .pricing-note {
+      margin-top: 1rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding-top: 1rem;
+      border-top: 1px solid #ddd;
+    }
+
+    /* CONTACT */
+    .contact-section {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      padding: 1rem 1.25rem;
+    }
+
+    .contact-label {
+      font-size: 0.75rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 0.75rem;
+      background-color: #222;
+      color: var(--text-light);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      text-decoration: none;
+      margin-bottom: 0.3rem;
+      transition: background-color 0.15s;
+    }
+
+    .contact-link:last-of-type { margin-bottom: 0; }
+    .contact-link:hover { background-color: #333; }
+
+    /* FOOTER */
+    footer {
+      padding: 0.8rem;
+      text-align: center;
+      font-size: 0.72rem;
+      background: var(--bg-dark);
+      border-top: 2px solid #333;
+    }
+
+    footer a {
+      color: var(--text-light);
+      text-decoration: underline;
+    }
+
+    footer a:hover { opacity: 0.6; }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+
+    <div class="page-header">
+      <div class="page-title">Video Editing Service</div>
+      <a href="https://www.youtube.com/@dattebow" class="portfolio-link">Click here to see examples of my videos.</a>
+    </div>
+
+    <!-- TERMS -->
+    <div class="dark-section">
+      <div class="section-heading">Terms and Conditions</div>
+
+      <p>Hello! Thank you for choosing me for your video editing needs!<br>
+      These are my Terms and Conditions. Please take a moment to read through them carefully.</p>
+
+      <div class="sub-heading">Services Provided:</div>
+      <ul>
+        <li>Reviewing and organizing provided footage.</li>
+        <li>Editing based on the agreed brief and instructions.</li>
+        <li>Delivering the final video in the agreed format and resolution.</li>
+        <li>Providing drafts and up to 3 rounds of revisions based on consolidated feedback. (Additional revisions beyond this may incur extra charges.)</li>
+      </ul>
+
+      <div class="sub-heading">Payment Terms:</div>
+      <p>A non-refundable deposit of RM30 is required before work begins. The remaining balance is due within 7 days of final delivery.</p>
+      <p>There will be no cancellation fee if the project is cancelled before work begins. :)</p>
+    </div>
+
+    <!-- RATES -->
+    <div class="rates-section">
+      <div class="rates-heading">Rates Overview</div>
+
+      <div class="rate-tier">
+        <div class="tier-title">Short-form Content</div>
+        <div class="tier-subtitle">(TikTok, Reels, Shorts, etc.)</div>
+        <div class="tier-price">RM150 – RM250 per video</div>
+        <div class="tier-desc">Up to 60 seconds. Edited for short-form platforms, with captions formatted for mobile viewing.</div>
+      </div>
+
+      <div class="rate-tier">
+        <div class="tier-title">Standard Long-Form</div>
+        <div class="tier-subtitle">(Vlogs, Reviews, Tutorials, etc.)</div>
+        <div class="tier-price">RM400 – RM650 per video</div>
+        <div class="tier-desc">5–15 minutes. Structured editing with consistent pacing.<br>Extra charges may apply for footage over 30 minutes or multi-camera setups.</div>
+      </div>
+
+      <div class="rate-tier">
+        <div class="tier-title">Narrative &amp; Video Essays</div>
+        <div class="tier-subtitle">(Documentaries, Podcasts, Deep-dives, etc.)</div>
+        <div class="tier-price">RM850+ per video</div>
+        <div class="tier-desc">20+ minutes. Long-form editing with narrative structure and visual elements.</div>
+      </div>
+
+      <div class="addons">
+        <div class="tier-title">Add-On Services</div>
+        <ul>
+          <li>Thumbnail Design: RM40 per image</li>
+          <li>Extra revision round: RM50 per round</li>
+          <li>Rush delivery (24-hour turnaround): +30% of project fee</li>
+        </ul>
+      </div>
+
+      <div class="pricing-note">Pricing will be finalized after I review your footage and project brief.</div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="contact-section">
+      <div class="contact-label">Contact me for projects or inquiries.</div>
+      <a href="mailto:aiedel@farrhan.com" class="contact-link">
+        <span>&#9993;</span><span>Email</span>
+      </a>
+      <a href="https://www.linkedin.com/in/aiedel-farrhan/" class="contact-link">
+        <span>in</span><span>LinkedIn</span>
+      </a>
+      <a href="https://www.instagram.com/by.farrhan" class="contact-link">
+        <span>&#9679;</span><span>Instagram DM</span>
+      </a>
+    </div>
+
+    <footer>
+      <a href="index.html">Click here to go back to the homepage.</a>
+    </footer>
+
+  </div>
+
+</body>
+</html>

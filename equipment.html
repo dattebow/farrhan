@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>farrhan. — Equipment</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #0B1215;
+      --bg-card: #ffffff;
+      --text:    #000000;
+      --border:  #0B1215;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text);
+      font-family: 'Space Mono', monospace;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    /* Grid line background matching the other pages */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 800px;
+      background-color: var(--bg-card);
+      border: 3px solid var(--border);
+    }
+
+    /* HEADER */
+    header {
+      padding: 2rem;
+      border-bottom: 3px solid var(--border);
+      text-align: center;
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.75rem;
+      color: var(--text);
+      text-decoration: underline;
+    }
+
+    .back-link:hover { opacity: 0.6; }
+
+    /* JUMP NAV */
+    .jump-nav {
+      padding: 1rem;
+      border-bottom: 3px solid var(--border);
+    }
+
+    .jump-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .jump-btn {
+      display: block;
+      width: 100%;
+      padding: 0.6rem 1rem;
+      background-color: var(--border);
+      color: var(--bg-card);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      text-decoration: none;
+      border: none;
+      margin-bottom: 0.25rem;
+      cursor: pointer;
+      text-align: left;
+      transition: opacity 0.15s;
+    }
+
+    .jump-btn:last-child { margin-bottom: 0; }
+    .jump-btn:hover { opacity: 0.75; }
+
+    /* SECTIONS */
+    .section {
+      padding: 1.5rem 1rem;
+      border-bottom: 3px solid var(--border);
+    }
+
+    .section:last-child { border-bottom: none; }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    /* GEAR GRID */
+    .gear-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+
+    .gear-item {
+      border: 2px solid var(--border);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gear-img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: contain;
+      padding: 0.5rem;
+      background: #fafafa;
+      border-bottom: 2px solid var(--border);
+    }
+
+    /* Placeholder boxes for images (since we can't embed actual product images) */
+    .gear-img-placeholder {
+      width: 100%;
+      aspect-ratio: 1;
+      background: #f0f0f0;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gear-img-placeholder svg {
+      width: 40%;
+      height: 40%;
+      opacity: 0.2;
+    }
+
+    .gear-name {
+      font-size: 0.65rem;
+      text-align: center;
+      padding: 0.4rem 0.25rem;
+      line-height: 1.3;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 0.8rem 1rem;
+      text-align: center;
+      font-size: 0.75rem;
+      border-top: 3px solid var(--border);
+    }
+
+    footer a {
+      color: var(--text);
+      text-decoration: underline;
+    }
+
+    footer a:hover { opacity: 0.6; }
+
+    @media (max-width: 480px) {
+      .gear-grid { grid-template-columns: repeat(2, 1fr); }
+      .page-title { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+
+    <header>
+      <div class="page-title">farrhan's equipment</div>
+      <a href="index.html" class="back-link">Click here to go back to the homepage.</a>
+    </header>
+
+    <div class="jump-nav">
+      <div class="jump-label">Jump to...</div>
+      <a href="#audio" class="jump-btn">Audio Gear</a>
+      <a href="#music" class="jump-btn">Music Instruments</a>
+      <a href="#photo" class="jump-btn">Photography / Videography</a>
+      <a href="#games" class="jump-btn">Video Games</a>
+    </div>
+
+    <!-- AUDIO GEAR -->
+    <div class="section" id="audio">
+      <div class="section-title">Audio Gear</div>
+      <div class="gear-grid">
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div class="gear-name">Moondrop Space Travel</div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+          </div>
+          <div class="gear-name">Moondrop Aria Snow Edition</div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M2 12h4M18 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <div class="gear-name">7Hz Salnotes Zero</div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>
+          </div>
+          <div class="gear-name">Audio Technica M20X</div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>
+          </div>
+          <div class="gear-name">Koss Porta Pro (MMCX Mod)</div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M2 12h4M18 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <div class="gear-name">Koss KSC35</div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>
+          </div>
+          <div class="gear-name">Panasonic RP-HZ47</div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+          </div>
+          <div class="gear-name">Arturia Minifuse 1</div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+          </div>
+          <div class="gear-name">JCALLY JM04 Pro</div>
+        </div>
+
+        <div class="gear-item" style="grid-column: 2;">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a3 3 0 00-3 3v7a3 3 0 006 0V5a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v3M8 22h8"/></svg>
+          </div>
+          <div class="gear-name">Shure SM57</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MUSIC INSTRUMENTS -->
+    <div class="section" id="music">
+      <div class="section-title">Music Instruments</div>
+      <div class="gear-grid">
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3l-6 6 9 9 6-6-3-3-2 2-5-5 2-2L9 3z"/><circle cx="18" cy="18" r="2"/></svg>
+          </div>
+          <div class="gear-name">Squier Affinity PJ Bass</div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="9" width="20" height="10" rx="1"/><path d="M6 9V5M10 9V5M14 9V5M18 9V5"/></svg>
+          </div>
+          <div class="gear-name">M-AUDIO Keystation 61 MK3</div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="9" width="20" height="10" rx="1"/><path d="M6 9V5M10 9V5M14 9V5M18 9V5"/></svg>
+          </div>
+          <div class="gear-name">Casio VL-1</div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5v14M17 5v14M3 12h18"/></svg>
+          </div>
+          <div class="gear-name">NUX MG-300</div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="5" width="14" height="14" rx="2"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div class="gear-name">JOYO MA-10B 10W</div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a3 3 0 00-3 3v7a3 3 0 006 0V5a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/></svg>
+          </div>
+          <div class="gear-name">LEKATO WS-70</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PHOTOGRAPHY / VIDEOGRAPHY -->
+    <div class="section" id="photo">
+      <div class="section-title">Photography / Videography</div>
+      <div class="gear-grid">
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          </div>
+          <div class="gear-name">Sony a6000</div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          </div>
+          <div class="gear-name">Casio Exilim EX-Z77</div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="15" height="10" rx="2"/><path d="M17 9l5-2v10l-5-2"/></svg>
+          </div>
+          <div class="gear-name">DJI Osmo Nano</div>
+        </div>
+
+        <div class="gear-item" style="grid-column: 1;">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div class="gear-name">7artisans 35mm F1.4 Mark II</div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div class="gear-name">"Oreo" 32mm F10</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- VIDEO GAMES -->
+    <div class="section" id="games">
+      <div class="section-title">Video Games</div>
+      <div class="gear-grid">
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 9v6M9 12h6"/></svg>
+          </div>
+          <div class="gear-name">Valve Steam Deck OLED</div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="9" cy="12" r="2"/><path d="M15 10h2M15 14h2"/></svg>
+          </div>
+          <div class="gear-name">Retroid Pocket 4 Pro</div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="9" cy="12" r="2"/><path d="M15 10h2M15 14h2"/></svg>
+          </div>
+          <div class="gear-name">8BitDo Ultimate Controller</div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="9" cy="12" r="2"/><path d="M15 10h2M15 14h2"/></svg>
+          </div>
+          <div class="gear-name">8BitDo SN30 Pro</div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M2 12h4M18 12h4"/></svg>
+          </div>
+          <div class="gear-name">Logitech G304</div>
+        </div>
+
+        <div class="gear-item">
+          <div class="gear-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="10" rx="1"/><path d="M6 7V5M10 7V5M14 7V5M18 7V5"/></svg>
+          </div>
+          <div class="gear-name">Rexkagon K617</div>
+        </div>
+
+      </div>
+    </div>
+
+    <footer>
+      <a href="index.html">Click here to go back to the homepage.</a>
+    </footer>
+
+  </div>
+
+</body>
+</html>

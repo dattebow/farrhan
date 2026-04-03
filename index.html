@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>farrhan.</title>
 
-  <!-- 
+  <!--
     FONTS USED:
-    - Playfair Display = elegant serif for the big title
-    - Space Mono = brutalist monospace for everything else
+    - DM Serif Display = elegant serif for the big title
+    - DM Sans = clean sans-serif for everything else
     Change these at fonts.google.com if you want different ones
   -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 
   <style>
-    
-    /* === CHANGE COLORS HERE === */
+
+    /* === COLORS === */
     :root {
       --bg-page: #0B1215;
       --bg-card: #ffffff;
@@ -27,25 +27,20 @@
     body {
       background-color: var(--bg-page);
       color: var(--text);
-      font-family: 'Space Mono', monospace;
+      font-family: 'DM Sans', sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
     }
 
-    /* =============================================
-       VIDEO BACKGROUND
-       Put your .mp4 file in the same folder as
-       index.html and change "botanical.mp4" below
-       to match your filename
-    ============================================= */
+    /* === VIDEO BACKGROUND ===
+       Put your .mp4 in the same folder as index.html
+       and update the filename in the <source> tag below.
+    */
     .video-bg {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       z-index: 0;
       overflow: hidden;
     }
@@ -53,44 +48,40 @@
     .video-bg video {
       width: 100%;
       height: 100%;
-      object-fit: cover;        /* fills the screen without stretching */
-      filter: blur(3px)         /* CHANGE blur amount here — try 2px to 8px */
-              brightness(0.4);  /* CHANGE darkness here — lower = darker */
+      object-fit: cover;
+      filter: blur(3px) brightness(0.4); /* adjust blur (2–8px) and darkness here */
     }
 
     /* === GRAIN OVERLAY === */
     .video-bg::after {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       pointer-events: none;
-      opacity: 0.12;           /* CHANGE grain strength here */
+      opacity: 0.12; /* adjust grain strength here */
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
       background-size: 128px 128px;
       animation: grain 0.5s steps(1) infinite;
     }
 
     @keyframes grain {
-      0%   { background-position: 0% 0%; }
-      10%  { background-position: -5% -10%; }
-      20%  { background-position: -15% 5%; }
-      30%  { background-position: 7% -25%; }
-      40%  { background-position: -5% 25%; }
-      50%  { background-position: -15% 10%; }
-      60%  { background-position: 15% 0%; }
-      70%  { background-position: 0% 15%; }
-      80%  { background-position: 3% 35%; }
-      90%  { background-position: -10% 10%; }
-      100% { background-position: 0% 0%; }
+      0%   { background-position:   0%   0%; }
+      10%  { background-position:  -5% -10%; }
+      20%  { background-position: -15%   5%; }
+      30%  { background-position:   7% -25%; }
+      40%  { background-position:  -5%  25%; }
+      50%  { background-position: -15%  10%; }
+      60%  { background-position:  15%   0%; }
+      70%  { background-position:   0%  15%; }
+      80%  { background-position:   3%  35%; }
+      90%  { background-position: -10%  10%; }
+      100% { background-position:   0%   0%; }
     }
 
     /* === CARD === */
     .card {
       position: relative;
-      z-index: 1;              /* sits above the video */
+      z-index: 1;
       width: 100%;
       max-width: 800px;
       background-color: var(--bg-card);
@@ -105,9 +96,9 @@
     }
 
     .name {
-      font-family: 'Playfair Display', serif; /* CHANGE TITLE FONT HERE */
-      font-size: 4rem;                      /* CHANGE TITLE SIZE HERE */
-      font-weight: 100;
+      font-family: 'DM Serif Display', serif;
+      font-size: 4rem;
+      font-weight: 400;
       line-height: 1;
       margin-bottom: 1rem;
     }
@@ -118,11 +109,10 @@
 
     /* === SECTIONS === */
     .section {
-      padding: 1rem 1rem;
+      padding: 1rem;
       border-bottom: 6px solid var(--border);
     }
 
-    /* === SECTION LABELS === */
     .label {
       font-size: 1rem;
       text-transform: uppercase;
@@ -136,47 +126,45 @@
       padding-left: 1rem;
     }
 
+    /* === ABOUT BUTTONS === */
+    .about-buttons {
+      display: flex;
+      gap: 0.4rem;
+      margin-top: 1.25rem;
+    }
 
-/* === ABOUT BUTTONS === */
-.about-buttons {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 1.25rem;
-}
+    .about-btn {
+      padding: 0.8rem 1rem;
+      border: 3px solid var(--border);
+      text-decoration: none;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      transition: background-color 0.15s, color 0.15s;
+    }
 
-.about-btn {
-  padding: .8rem 1rem;
-  border: 3px solid var(--border);
-  text-decoration: none;
-  color: var(--text);
-  font-family: 'Space Mono', monospace;
-  font-size: 0.8rem;
-  transition: background-color 0.15s, color 0.15s;
-}
-
-.about-btn:hover {
-  background-color: var(--border);
-  color: var(--bg-card);
-}
+    .about-btn:hover {
+      background-color: var(--border);
+      color: var(--bg-card);
+    }
 
     /* === LINK ROWS === */
     .link-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: .8rem 1rem;
+      padding: 0.8rem 1rem;
       border: 3px solid var(--border);
       text-decoration: none;
       color: var(--text);
-      font-family: 'Space Mono', monospace;
-      font-size: 0.8rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
       margin-bottom: 0.4rem;
       transition: background-color 0.15s, color 0.15s;
     }
 
     .link-row:last-child { margin-bottom: 0; }
 
-    /* hover inverts the row — white text on dark bg */
     .link-row:hover {
       background-color: var(--border);
       color: var(--bg-card);
@@ -184,7 +172,7 @@
 
     /* === FOOTER === */
     footer {
-      padding: .8rem 1rem;
+      padding: 0.8rem 1rem;
       border-top: 3px solid var(--border);
       text-align: center;
       font-size: 0.8rem;
@@ -194,76 +182,66 @@
 </head>
 <body>
 
-  <!-- =============================================
-       VIDEO BACKGROUND
-       1. Download a botanical .mp4 from pexels.com
+  <!-- VIDEO BACKGROUND
+       1. Download a .mp4
        2. Put it in the same folder as index.html
-       3. Change "botanical.mp4" below to your filename
-  ============================================= -->
+       3. Update the filename in the <source> tag below
+  -->
   <div class="video-bg">
     <video autoplay muted loop playsinline>
       <source src="botanical.mp4" type="video/mp4">
-      <!-- if no video file found, page background stays dark — that is fine -->
     </video>
   </div>
 
-  <!-- CARD -->
   <div class="card">
 
-    <!-- HEADER -->
     <header>
       <div class="name">farrhan.</div>
       <div class="tagline">Video Editor · Bassist · Headphone Collector · JRPG Enjoyer</div>
     </header>
 
-    <!-- ABOUT -->
     <div class="section">
       <div class="label">About me:</div>
       <p class="bio">
         Farrhan, otherwise known as "Dip", is a video editor (and sometimes graphic designer) based in Kuala Lumpur, Malaysia, currently finishing his studies while working at <a href="https://grasskonbini.my">Grass Konbini</a>, a media and marketing company.<br><br>
         He has been editing videos since 2014- long before it became a career- turning a childhood obsession into a professional craft. Since 2021, he has brought that same instinct to client work, producing content that is deliberate, considered, and made to last.<br><br>
-        Outside of the timeline, Dip is a bassist, an audiophile quietly losing the battle against gear acquisition syndrome, and a committed JRPG enjoyer. He is working toward building and leading a media team of his own.<br>
+        Outside of the timeline, Dip is a bassist, an audiophile quietly losing the battle against gear acquisition syndrome, and a committed JRPG enjoyer. He is working toward building and leading a media team of his own.
       </p>
-
-    <div class="about-buttons">
-      <a href="equipment.html" class="about-btn">Equipment</a>
-      <a href="faq.html" class="about-btn">FAQ</a>
-</div>
-
+      <div class="about-buttons">
+        <a href="equipment.html" class="about-btn">Equipment</a>
+        <a href="faq.html" class="about-btn">FAQ</a>
+      </div>
     </div>
 
-    <!-- FIND ME -->
     <div class="section">
       <div class="label">Contact me for projects or inquiries:</div>
       <a href="https://www.youtube.com/@dattebow" class="link-row">
-        <span class="icon">▶</span><span>YouTube</span>
+        <span>•</span><span>YouTube</span>
       </a>
       <a href="https://www.instagram.com/by.farrhan" class="link-row">
-        <span class="icon">▶</span><span>Instagram</span>
+        <span>•</span><span>Instagram</span>
       </a>
       <a href="https://x.com/by_farrhan" class="link-row">
-        <span class="icon">▶</span><span>Twitter</span>
+        <span>•</span><span>Twitter</span>
       </a>
       <a href="mailto:aiedel@farrhan.com" class="link-row">
-        <span class="icon">▶</span><span>Email</span>
+        <span>•</span><span>Email</span>
       </a>
       <a href="https://www.linkedin.com/in/aiedel-farrhan/" class="link-row">
-        <span class="icon">▶</span><span>LinkedIn</span>
+        <span>•</span><span>LinkedIn</span>
       </a>
-
     </div>
 
-    <!-- SERVICES -->
     <div class="section">
       <div class="label">Services I provide:</div>
       <a href="service-videoediting.html" class="link-row">
-        <span class="icon">▶</span><span>Video Editing</span>
+        <span>•</span><span>Video Editing</span>
       </a>
       <a href="service-graphicdesign.html" class="link-row">
-        <span class="icon">▶</span><span>Graphic Design</span>
+        <span>•</span><span>Graphic Design</span>
       </a>
       <a href="https://www.youtube.com/watch?v=J2aJlb-bmuM" class="link-row">
-        <span class="icon">▶</span><span>Fishing Partner</span>
+        <span>•</span><span>Fishing Partner</span>
       </a>
     </div>
 
