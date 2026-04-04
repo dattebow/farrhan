@@ -34,50 +34,6 @@
       min-height: 100vh;
     }
 
-    /* === VIDEO BACKGROUND ===
-       Put your .mp4 in the same folder as index.html
-       and update the filename in the <source> tag below.
-    */
-    .video-bg {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .video-bg video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: blur(3px) brightness(0.4); /* adjust blur (2–8px) and darkness here */
-    }
-
-    /* === GRAIN OVERLAY === */
-    .video-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.12; /* adjust grain strength here */
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-      background-size: 128px 128px;
-      animation: grain 0.5s steps(1) infinite;
-    }
-
-    @keyframes grain {
-      0%   { background-position:   0%   0%; }
-      10%  { background-position:  -5% -10%; }
-      20%  { background-position: -15%   5%; }
-      30%  { background-position:   7% -25%; }
-      40%  { background-position:  -5%  25%; }
-      50%  { background-position: -15%  10%; }
-      60%  { background-position:  15%   0%; }
-      70%  { background-position:   0%  15%; }
-      80%  { background-position:   3%  35%; }
-      90%  { background-position: -10%  10%; }
-      100% { background-position:   0%   0%; }
-    }
-
     /* === CARD === */
     .card {
       position: relative;
@@ -98,9 +54,7 @@
     .name {
       font-family: 'DM Serif Display', serif;
       font-size: 4rem;
-      font-weight: 400;
       line-height: 1;
-      margin-bottom: 1rem;
     }
 
     .tagline {
@@ -124,28 +78,6 @@
       font-size: 1rem;
       border-left: 3px solid var(--border);
       padding-left: 1rem;
-    }
-
-    /* === ABOUT BUTTONS === */
-    .about-buttons {
-      display: flex;
-      gap: 0.4rem;
-      margin-top: 1.25rem;
-    }
-
-    .about-btn {
-      padding: 0.8rem 1rem;
-      border: 3px solid var(--border);
-      text-decoration: none;
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1rem;
-      transition: background-color 0.15s, color 0.15s;
-    }
-
-    .about-btn:hover {
-      background-color: var(--border);
-      color: var(--bg-card);
     }
 
     /* === LINK ROWS === */
@@ -182,17 +114,6 @@
 </head>
 <body>
 
-  <!-- VIDEO BACKGROUND
-       1. Download a .mp4
-       2. Put it in the same folder as index.html
-       3. Update the filename in the <source> tag below
-  -->
-  <div class="video-bg">
-    <video autoplay muted loop playsinline>
-      <source src="botanical.mp4" type="video/mp4">
-    </video>
-  </div>
-
   <div class="card">
 
     <header>
@@ -203,14 +124,9 @@
     <div class="section">
       <div class="label">About me:</div>
       <p class="bio">
-        Farrhan, otherwise known as "Dip", is a video editor (and sometimes graphic designer) based in Kuala Lumpur, Malaysia, currently finishing his studies while working at <a href="https://grasskonbini.my">Grass Konbini</a>, a media and marketing company.<br><br>
-        He has been editing videos since 2014- long before it became a career- turning a childhood obsession into a professional craft. Since 2021, he has brought that same instinct to client work, producing content that is deliberate, considered, and made to last.<br><br>
-        Outside of the timeline, Dip is a bassist, an audiophile quietly losing the battle against gear acquisition syndrome, and a committed JRPG enjoyer. He is working toward building and leading a media team of his own.
+        Video editor, graphic designer, and occasional producer based in Kuala Lumpur, Malaysia. Has been editing since 2014, doing client work since 2021 - currently at <a href="https://grasskonbini.my">Grass Konbini</a>, a media and marketing company, while finishing his studies.<br><br>
+        Outside of work: bassist, audiophile, JRPG enjoyer. Suffering from gear acquisition syndrome. (<a href="equipment.html">Equipment list.</a>)
       </p>
-      <div class="about-buttons">
-        <a href="equipment.html" class="about-btn">Equipment</a>
-        <a href="faq.html" class="about-btn">FAQ</a>
-      </div>
     </div>
 
     <div class="section">
@@ -234,10 +150,10 @@
 
     <div class="section">
       <div class="label">Services I provide:</div>
-      <a href="service-videoediting.html" class="link-row">
+      <a href="videoediting.html" class="link-row">
         <span>•</span><span>Video Editing</span>
       </a>
-      <a href="service-graphicdesign.html" class="link-row">
+      <a href="graphicdesign.html" class="link-row">
         <span>•</span><span>Graphic Design</span>
       </a>
       <a href="https://www.youtube.com/watch?v=J2aJlb-bmuM" class="link-row">
