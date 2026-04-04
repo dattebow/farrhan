@@ -46,8 +46,8 @@
 
     /* === HEADER === */
     header {
-      padding: 2rem;
-      border-bottom: 3px solid var(--border);
+      padding: 1rem;
+      border-bottom: 6px solid var(--border);
       text-align: center;
     }
 
@@ -82,25 +82,22 @@
 
     /* === LINK ROWS === */
     .link-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.8rem 1rem;
-      border: 3px solid var(--border);
-      text-decoration: none;
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1rem;
-      margin-bottom: 0.4rem;
-      transition: background-color 0.15s, color 0.15s;
+     display: block;
+     padding: .9rem 1rem;
+     background-color: var(--border);
+     color: var(--bg-card);
+     font-family: 'DM Sans', sans-serif;
+     font-size: 1rem;
+     text-decoration: none;
+     margin-bottom: 0.4rem;
+     cursor: pointer;
+     text-align: right;
+     transition: opacity 0.15s;
     }
 
     .link-row:last-child { margin-bottom: 0; }
 
-    .link-row:hover {
-      background-color: var(--border);
-      color: var(--bg-card);
-    }
+    .link-row:hover { opacity: 0.8; }
 
     /* === FOOTER === */
     footer {
@@ -125,39 +122,39 @@
       <div class="label">About me:</div>
       <p class="bio">
         Video editor, graphic designer, and occasional producer based in Kuala Lumpur, Malaysia. Has been editing since 2014, doing client work since 2021 - currently at <a href="https://grasskonbini.my">Grass Konbini</a>, a media and marketing company, while finishing his studies.<br><br>
-        Outside of work: bassist, audiophile, JRPG enjoyer. Suffering from gear acquisition syndrome. (<a href="equipment.html">Equipment list.</a>)
+        Outside of work: bassist, audiophile, JRPG enjoyer. Suffering from gear acquisition syndrome. (<a href="other/equipment.html">Equipment list.</a>)
       </p>
     </div>
 
     <div class="section">
       <div class="label">Contact me for projects or inquiries:</div>
       <a href="https://www.youtube.com/@dattebow" class="link-row">
-        <span>•</span><span>YouTube</span>
+        <span>YouTube</span>
       </a>
       <a href="https://www.instagram.com/by.farrhan" class="link-row">
-        <span>•</span><span>Instagram</span>
+        <span>Instagram</span>
       </a>
       <a href="https://x.com/by_farrhan" class="link-row">
-        <span>•</span><span>Twitter</span>
+        <span>Twitter</span>
       </a>
       <a href="mailto:aiedel@farrhan.com" class="link-row">
-        <span>•</span><span>Email</span>
+        <span>Email</span>
       </a>
       <a href="https://www.linkedin.com/in/aiedel-farrhan/" class="link-row">
-        <span>•</span><span>LinkedIn</span>
+        <span>LinkedIn</span>
       </a>
     </div>
 
     <div class="section">
       <div class="label">Services I provide:</div>
-      <a href="videoediting.html" class="link-row">
-        <span>•</span><span>Video Editing</span>
+      <a href="other/videoediting.html" class="link-row">
+        <span>Video Editing</span>
       </a>
-      <a href="graphicdesign.html" class="link-row">
-        <span>•</span><span>Graphic Design</span>
+      <a href="other/graphicdesign.html" class="link-row">
+        <span>Graphic Design</span>
       </a>
       <a href="https://www.youtube.com/watch?v=J2aJlb-bmuM" class="link-row">
-        <span>•</span><span>Fishing Partner</span>
+        <span>Fishing Partner</span>
       </a>
     </div>
 
