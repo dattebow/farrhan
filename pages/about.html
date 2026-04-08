@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Farrhan - Video Editor, Bassist, and Tech Enthusiast">
+  <title>farrhan. (about me)</title>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Mono&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* CSS Variables */
+    :root {
+      --bg-page: #0B1215;
+      --bg-card: #F3F3F3;
+      --text: #0B1215;
+      --border: #0B1215;
+      --thick: 6px solid var(--border);
+      --thin: 3px solid var(--border);
+    }
+
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Base Styles */
+    body {
+      color: var(--text);
+      font-family: 'PT Mono', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    /* Background Video */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.3);
+      z-index: -100;
+    }
+
+    /* Card Container */
+    .card {
+      width: 100%;
+      max-width: 650px;
+      background-color: var(--bg-card);
+      border: var(--thin);
+    }
+
+    /* Header */
+    header {
+      padding: 1rem;
+      border-bottom: var(--thick);
+      text-align: center;
+    }
+
+    .back-link {
+      color: var(--text);
+      font-size: 1rem;
+      transition: opacity 0.2s ease;
+      display: inline-block;
+    }
+
+    .back-link:hover {
+      opacity: 0.7;
+    }
+
+    /* Content */
+    .content {
+      padding: 1.5rem;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .content p {
+      margin-bottom: 1rem;
+    }
+
+    .content p:last-child {
+      margin-bottom: 0;
+    }
+
+  </style>
+</head>
+<body>
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="/assets/bg-loop.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <main class="card">
+    <header>
+      <a href="/index.html" class="back-link">← farrhan / home</a>
+    </header>
+
+    <article class="content">
+      <p>
+        Hi. I'm Farrhan, also known as Dip. I'm currently a student and full-time Video Editor at Grass Konbini, a media and marketing company based in Kuala Lumpur. Originally from Sarawak, I've been video editing since 2014- started with editing funny voice call moments I had with my friends for YouTube. (It's deleted now, don't even try to find it lol)<br><br>
+        Somewhere between the timeline scrubbing and the render times, I realized that I actually enjoyed doing this. So I started freelancing and eventually landed at Grass Konbini, where I work on corporate content (sometimes shitposts). To avoid burning out, I also edit videos for friends, live streamers, VTubers, and other random stuff that I find interesting.<br><br>
+        But enough about video editing. Outside of that, I've been playing bass since 2022- nothing serious, just jamming with friends and recording covers here and there. I play keyboard too, but I'm horrible at it. Other than music, I'm the type of person who self-hosts services like Calibre and Navidrome on a homebuilt NAS because I refuse to pay for subscription services (imagine paying for stuff lol can't be me). I enjoy tinkering with systems, building things from scratch, and figuring out how stuff works under the hood. You might think I'm an engineering student, but no- I'm in Art & Design (not joking).<br><br>
+        My other hobbies include journaling, photography, film/videography, and gaming. I'm very into JRPGs, RPGs, sandboxes, and racing games. I've been making things for over a decade, and I don't think I'm stopping anytime soon.
+      </p>
+    </article>
+  </main>
+  
+<section class="card">
+  <header>
+    <div>FAQ</div>
+  </header>
+
+  <article class="content">
+    <p>
+      <strong>Q: What software do you use for editing?</strong><br>
+      A: Adobe Premiere Pro<br><br>
+
+      <strong>Q: Are you open for freelance work?</strong><br>
+      A: Not right now, sorry!<br><br>
+
+      <strong>Q: What's your favorite bass?</strong><br>
+      A: Mine lol. Squire Affinity PJ Bass
+
+      <strong>Q: What's your favorite bass?</strong><br>
+      A: Mine lol. Squire Affinity PJ Bass
+    </p>
+  </article>
+</section>
+
+</body>
+</html>

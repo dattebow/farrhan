@@ -3,124 +3,121 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Farrhan - Video Editor, Bassist, Headphone Collector, JRPG Enjoyer">
   <title>farrhan.</title>
-
   <link href="https://fonts.googleapis.com/css2?family=PT+Mono&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
   <style>
-
-    /* === COLORS === */
+    /* CSS Variables */
     :root {
       --bg-page: #0B1215;
       --bg-card: #F3F3F3;
-      --text:    #0B1215;
-      --border:  #0B1215;
+      --text: #0B1215;
+      --border: #0B1215;
+      --thick: 6px solid var(--border);
+      --thin: 3px solid var(--border);
     }
 
-    /* === PAGE === */
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Base Styles */
     body {
-      background-color: var(--bg-page);
       color: var(--text);
-      font-family: 'PT Mono', 'Courier New', monospace;
+      font-family: 'PT Mono', monospace;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
+      padding: 1rem;
+      gap: 1rem;
     }
 
-    /* === CARD === */
-    .card {
-      position: relative;
-      z-index: 1;
+    /* Background Video */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      max-width: 800px;
-      background-color: var(--bg-card);
-      border: 3px solid var(--border);
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.3);
+      z-index: -100;
     }
 
-    /* === HEADER === */
+    /* Card Container */
+    .card {
+      width: 100%;
+      max-width: 650px;
+      background-color: var(--bg-card);
+      border: var(--thin);
+    }
+
+    /* Header */
     header {
       padding: 1rem;
-      border-bottom: 6px solid var(--border);
+      border-bottom: var(--thick);
       text-align: center;
     }
 
     .name {
-      font-family: 'PT Serif', Georgia, serif;
+      font-family: 'PT Serif', serif;
       font-size: 4rem;
-      line-height: 1;
+      font-weight: 700;
     }
 
     .tagline {
       font-size: 1rem;
     }
 
-    /* === SECTIONS === */
-    .section {
+    /* Navigation */
+    nav {
       padding: 1rem;
-      border-bottom: 6px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.3rem;
     }
 
-    .label {
+    .btn {
+      padding: 1rem;
+      background-color: var(--border);
+      color: var(--bg-card);
+      text-align: center;
+      text-decoration: none;
       font-size: 1rem;
       text-transform: uppercase;
-      margin-bottom: 1rem;
+      transition: opacity 0.2s ease, transform 0.1s ease;
+      display: block;
     }
 
-    /* === BIO === */
-    .bio {
-      font-size: 1rem;
-      border-left: 3px solid var(--border);
-      padding-left: 1rem;
-    }
-
-    /* === LINK ROWS === */
-    .link-row {
-     display: flex;
-     padding: .9rem 1rem;
-     background-color: var(--border);
-     color: var(--bg-card);
-     font-family: 'PT Mono', 'Courier New', monospace;
-     font-size: 1rem;
-     text-decoration: none;
-     margin-bottom: 0.4rem;
-     cursor: pointer;
-     text-align: right;
-     transition: opacity 0.15s;
-    }
-
-    .link-row:last-child { margin-bottom: 0; }
-
-    .link-row:hover { opacity: 0.8; }
-
-    /* === FOOTER === */
-    footer {
-      padding: 0.8rem 1rem;
-      border-top: 3px solid var(--border);
-      text-align: center;
-      font-size: 0.8rem;
+    .btn:hover {
+      opacity: 0.8;
     }
 
   </style>
 </head>
 <body>
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="/assets/bg-loop.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
-  <div class="card">
-
+  <main class="card">
     <header>
-      <div class="name">farrhan.</div>
-      <div class="tagline">Video Editor · Bassist · Headphone Collector · JRPG Enjoyer</div>
+      <h1 class="name">farrhan.</h1>
+      <p class="tagline">Video Editor · Bassist · Headphone Collector · JRPG Enjoyer</p>
     </header>
 
-    <div class="section">
-      <div class="label">About me:</div>
-      <p class="bio">
-        Video editor, graphic designer, and occasional producer based in Kuala Lumpur, Malaysia. Has been editing since 2014, doing client work since 2021 - currently at <a href="https://grasskonbini.my">Grass Konbini</a>, a media and marketing company, while finishing his studies.<br><br>
-        Outside of work: bassist, audiophile, JRPG enjoyer. Suffering from gear acquisition syndrome. (<a href="/pages/equipment.html">Equipment list.</a>)
-      </p>
-    </div>
-
-  </div>
-
+    <nav>
+      <a href="/pages/about.html" class="btn">About Me</a>
+      <a href="/pages/links.html" class="btn">Links</a>
+      <a href="/pages/services.html" class="btn">Services</a>
+      <a href="/pages/equipment.html" class="btn">Equipment</a>
+    </nav>
+  </main>
 </body>
 </html>
