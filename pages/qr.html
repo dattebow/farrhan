@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Farrhan - Video Editor, Bassist, Headphone Collector, JRPG Enjoyer">
-  <title>farrhan.</title>
+  <meta name="description" content="About Farrhan - Video Editor, Bassist, and Tech Enthusiast">
+  <title>farrhan. (about me)</title>
   <link href="https://fonts.googleapis.com/css2?family=PT+Mono&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     /* CSS Variables */
@@ -65,40 +65,27 @@
       color: var(--text);
     }
 
-    .name {
-      font-family: 'PT Serif', serif;
-      font-size: 4rem;
-      font-weight: 700;
+    .back-link {
       color: var(--text);
-    }
-
-    .tagline {
       font-size: 1rem;
+      transition: opacity 0.2s ease;
+      display: inline-block;
     }
 
-    /* Navigation */
-    nav {
-      padding: 1rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 0.3rem;
-      color: var(--bg-card);
+    .back-link:hover {
+      opacity: 0.7;
     }
 
-    .btn {
-      padding: 1rem;
-      background-color: var(--border);
-      color: var(--bg-card);
-      text-align: center;
-      text-decoration: none;
-      font-size: 1rem;
-      text-transform: uppercase;
-      transition: opacity 0.2s ease, transform 0.1s ease;
+    .qr-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qr-wrapper img {
+      width: 100%;
+      height: auto;
       display: block;
-    }
-
-    .btn:hover {
-      opacity: 0.8;
     }
 
   </style>
@@ -111,16 +98,16 @@
 
   <main class="card">
     <header>
-      <h1 class="name">farrhan.</h1>
-      <p class="tagline">Video Editor · Bassist · Headphone Collector · JRPG Enjoyer</p>
+      <a href="/index.html" class="back-link">OR go to "farrhan.com"</a>
     </header>
 
-    <nav>
-      <a href="/pages/about.html" class="btn">About Me</a>
-      <a href="/pages/links.html" class="btn">Links</a>
-      <a href="/pages/services.html" class="btn">Services</a>
-      <a href="/pages/equipment.html" class="btn">Equipment</a>
-    </nav>
+    <div class="qr-wrapper">
+      <!-- Replace qr.jpg with your actual filename if different -->
+      <img src="/assets/qr.jpg" alt="QR code">
+    </div>
+
   </main>
+</section>
+
 </body>
 </html>
