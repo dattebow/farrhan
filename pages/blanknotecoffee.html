@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Blank Note Coffee — Not Just Coffee. It’s a Daily Note.">
+  <title>Blank Note Coffee | TTDI Jaya</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─────────────────────────────────────────────
+       TOKENS
+    ───────────────────────────────────────────── */
+    :root {
+      --color-dark:  #2F2F3A;
+      --color-light: #FFFFFF;
+      --font-serif: 'Cormorant Garamond', serif;
+      --font-sans:  'Jost', sans-serif;
+      --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* ─────────────────────────────────────────────
+       RESET & BASE
+    ───────────────────────────────────────────── */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--color-light);
+      color: var(--color-dark);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.02;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* ─────────────────────────────────────────────
+       NAVIGATION
+    ───────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 500;
+      padding: 1.2rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background var(--transition), padding var(--transition);
+    }
+
+    .nav-logo {
+      height: 24px;
+      width: auto;
+      transition: filter var(--transition);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: color var(--transition);
+    }
+
+    nav.scrolled {
+      background: var(--color-light);
+      padding: 0.8rem 5%;
+      border-bottom: 1px solid rgba(47, 47, 58, 0.05);
+    }
+    nav.scrolled .nav-links a { color: rgba(47, 47, 58, 0.4); }
+    nav.scrolled .nav-links a:hover { color: var(--color-dark); }
+    nav.scrolled .nav-logo { filter: invert(1); }
+
+    /* ─────────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+
+    .hero-text {
+      background: var(--color-dark);
+      color: var(--color-light);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 15% 10%;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 300;
+      line-height: 0.95;
+    }
+
+    .hero-title em { font-style: italic; opacity: 0.7; }
+
+    .hero-tagline {
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      opacity: 0.5;
+      max-width: 320px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 2.5rem;
+    }
+
+    .btn {
+      padding: 0.8rem 1.4rem;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--color-light);
+      transition: all var(--transition);
+      flex-grow: 1;
+      text-align: center;
+      max-width: 180px;
+    }
+
+    .btn:hover {
+      background: var(--color-light);
+      color: var(--color-dark);
+      border-color: var(--color-light);
+    }
+
+    .hero-visual {
+      background: var(--color-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40vh;
+    }
+
+    .img-placeholder {
+      width: 80%;
+      height: 70%;
+      background: #f4f4f4;
+    }
+
+    /* ─────────────────────────────────────────────
+       SECTIONS & MENU
+    ───────────────────────────────────────────── */
+    .section { padding: 5rem 8%; }
+
+    .label {
+      font-size: 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 0.4em;
+      opacity: 0.3;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .heading {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 2rem;
+    }
+
+    .body-text {
+      font-size: 0.9rem;
+      opacity: 0.6;
+      max-width: 480px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Menu Grid */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .menu-cat-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      border-bottom: 1px solid rgba(47, 47, 58, 0.1);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.8;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid rgba(47, 47, 58, 0.05);
+    }
+
+    .item-name {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      display: block;
+    }
+
+    .item-desc {
+      font-size: 0.7rem;
+      opacity: 0.4;
+      display: block;
+    }
+
+    .item-price {
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+
+    .amenities {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 3rem;
+      border-top: 1px solid rgba(47, 47, 58, 0.1);
+      padding-top: 2rem;
+    }
+
+    .amenity-item {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0.5;
+    }
+
+    /* ─────────────────────────────────────────────
+       VISIT
+    ───────────────────────────────────────────── */
+    .visit-box {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+    }
+
+    .info-value {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      line-height: 1.4;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(47, 47, 58, 0.08);
+      font-size: 0.8rem;
+    }
+
+    .closed { color: #b52b2b; }
+
+    /* ─────────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────────── */
+    footer {
+      background: var(--color-dark);
+      color: var(--color-light);
+      padding: 3rem 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .footer-brand { font-family: var(--font-serif); font-size: 1.4rem; font-style: italic; }
+    .footer-meta { font-size: 0.55rem; text-transform: uppercase; opacity: 0.3; }
+
+    /* ─────────────────────────────────────────────
+       MOBILE TWEAKS
+    ───────────────────────────────────────────── */
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-text { order: 2; padding: 4rem 8%; }
+      .hero-visual { order: 1; min-height: 45vh; }
+      .hero-title { font-size: 3.2rem; }
+      .btn { max-width: 100%; }
+      .footer { flex-direction: column; align-items: flex-start; gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="#home">
+      <img src="logo.png" alt="Blank Note Coffee" class="nav-logo">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#story">Story</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-text">
+        <h1 class="hero-title">Blank<br><em>Note</em><br>Coffee</h1>
+        <p class="hero-tagline">"Not Just Coffee. It’s a Daily Note"</p>
+      </div>
+      <div class="hero-visual">
+        <div class="img-placeholder"></div>
+      </div>
+    </section>
+
+    <section class="section" id="menu">
+      <h2 class="heading">Our Menu.</h2>
+      
+      <div class="menu-grid">
+        <div class="menu-col">
+          <h3 class="menu-cat-title">Black & White</h3>
+          <div class="menu-item">
+            <div><span class="item-name">PUT DRINK HERE</span><span class="item-desc">DESCRIPTION</span></div>
+            <span class="item-price">RM 00</span>
+          </div>
+          <div class="menu-item">
+            <div><span class="item-name">PUT DRINK HERE</span><span class="item-desc">DESCRIPTION</span></div>
+            <span class="item-price">RM 00</span>
+          </div>
+          <div class="menu-item">
+            <div><span class="item-name">PUT DRINK HERE</span><span class="item-desc">DESCRIPTION</span></div>
+            <span class="item-price">RM 00</span>
+          </div>
+        </div>
+
+        <div class="menu-col">
+          <h3 class="menu-cat-title">Specialty</h3>
+          <div class="menu-item">
+            <div><span class="item-name">PUT DRINK HERE</span><span class="item-desc">DESCRIPTION</span></div>
+            <span class="item-price">RM 00</span>
+          </div>
+          <div class="menu-item">
+            <div><span class="item-name">PUT DRINK HERE</span><span class="item-desc">DESCRIPTION</span></div>
+            <span class="item-price">RM 00</span>
+          </div>
+        </div>
+
+        <div class="menu-col">
+          <h3 class="menu-cat-title">Food by Hello John</h3>
+          <div class="menu-item">
+            <div><span class="item-name">PUT FOOD HERE</span><span class="item-desc">DESCRIPTION</span></div>
+            <span class="item-price">RM 00</span>
+          </div>
+          <div class="menu-item">
+            <div><span class="item-name">PUT FOOD HERE</span><span class="item-desc">DESCRIPTION</span></div>
+            <span class="item-price">RM 00</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="story" style="background: #fafafa;">
+      <h2 class="heading">"Not Just Coffee. It’s a Daily Note"</h2>
+      <p class="body-text">Located in TTDI Jaya. WRITE SOMETHING HERE LATER PLEASE LOL THANKS!</p>
+      
+      <div class="amenities">
+        <div class="amenity-item">Slow Bar Coffee</div>
+        <div class="amenity-item">Warm Kitchen</div>
+        <div class="amenity-item">Board Games</div>
+        <div class="amenity-item">Surau Available</div>
+      </div>
+    </section>
+
+    <section class="section" id="visit">
+      <div class="visit-box">
+        <div>
+          <span class="label">Location</span>
+          <p class="info-value">TTDI Jaya, Shah Alam<br>Selangor, Malaysia</p>
+          <br>
+          <span class="label">Contact</span>
+          <p style="font-size: 0.9rem;">contact@blanknotecoffee.com</p>
+        </div>
+
+        <div>
+          <span class="label">Hours</span>
+          <div class="hours-row"><span>Sun - Thu</span><span>5PM - 1AM</span></div>
+          <div class="hours-row"><span>Fri - Sat</span><span>5PM - 2AM</span></div>
+          <div class="hours-row closed"><span>Tuesday</span><span>Closed</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <p class="footer-brand">Blank Note Coffee</p>
+      <p class="footer-meta" style="margin-top: 0.4rem;">Est. 2026</p>
+    </div>
+    <p class="footer-meta">Shah Alam · Selangor</p>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+</body>
+</html>
