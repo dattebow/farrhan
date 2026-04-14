@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Farrhan - Video Editor, Bassist, and Tech Enthusiast">
+  <title>farrhan. (services)</title>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Mono&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <style>
+    :root {
+      --bg-page: #0B1215;
+      --bg-card: #F3F3F3;
+      --text: #0B1215;
+      --border: #0B1215;
+      --thick: 6px solid var(--border);
+      --thin: 3px solid var(--border);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      color: var(--text);
+      font-family: 'PT Mono', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.3);
+      z-index: -100;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 650px;
+      background-color: var(--bg-card);
+      border: var(--thin);
+    }
+
+    header {
+      padding: 1rem;
+      border-bottom: var(--thick);
+      text-align: center;
+      color: var(--text);
+    }
+
+    .back-link {
+      color: var(--text);
+      font-size: 1rem;
+      transition: opacity 0.2s ease;
+      display: inline-block;
+    }
+
+    .back-link:hover {
+      opacity: 0.7;
+    }
+
+    .text {
+      font-family: 'PT Mono', monospace;
+      font-size: 1rem;
+      text-align: justify;
+      padding: 1rem;
+      color: var(--text);
+    }
+
+  </style>
+</head>
+<body>
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="/assets/bg-loop.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <main class="card">
+    <header>
+      <a href="/index.html" class="back-link">← farrhan. / Home</a>
+    </header>
+
+    <article class="text">
+      <p>
+        Hi! I’m Farrhan, though many know me as Dip. I’m a video editor, designer, and relentless systems tinkerer based in Kuala Lumpur. My creative journey started all the way back in 2014 with nothing more than a few funny voice call recordings and a YouTube channel (All of my old videos are deleted, but you can try your best to find them). Today, that hobby has evolved into a professional role as a video editor a media and marketing agency.<br><br>
+        I tend to treat video editing as a balance between corporate polish and the high-energy chaos of "shitposting". To keep my sanity in check and avoid burnout, I collaborate with VTubers and live streamers to experiment with unconventional editing styles that- hopefully- stands out from the typical render.<br><br>
+        I’ve always been driven by a mix of creative curiosity and a need for technical control. I’m a big advocate for digital ownership, which is why I’d rather tackle the challenge of self-hosting my own libraries on a homebuilt NAS than pay for a monthly subscription. Whether I’m managing personal libraries on Calibre and Navidrome or configuring a server, I’m at my best when I’m building from scratch. You might mistake me for an engineering student, but I’m actually in Art & Design; I simply believe the tools we use should be ours to own and understand.<br><br>
+        When I’m not scrubbing through a timeline, I’m usually playing bass, shooting film, or getting lost in a JRPG. I’ve been a creator for over a decade, and I don’t plan on stopping anytime soon.
+      </p>
+    </article>
+  </main>
+  
+<section class="card">
+  <header>
+    <div>FAQ</div>
+  </header>
+
+  <article class="text">
+    <p>
+      <strong>Q: How old are you?</strong><br>
+      A: 24<br><br>
+
+      <strong>Q: Where are you from?</strong><br>
+      A: Kuala Lumpur<br><br>
+
+      <strong>Q: What is your MBTI?</strong><br>
+      A: INTJ<br><br>
+
+      <strong>Q: You look Chinese?</strong><br>
+      A: 我不会说中文，也听不懂半句。要是我是个间谍，肯定会做得非常出色。<br><br>
+
+      <strong>Q: What's your favorite bass?</strong><br>
+      A: Squire Affinity PJ Bass (Mine lol)<br><br>
+
+      <strong>Q: Why the bass and not the guitar?</strong><br>
+      A: Fewer strings good<br><br>
+
+      <strong>Q: If you’re an Art & Design student, why are you talking about servers and NAS?</strong><br>
+      A: Bro I just like computers<br><br>
+
+      <strong>Q: What software do you use for editing?</strong><br>
+      A: Adobe Premiere Pro<br><br>
+
+      <strong>Q: How often does Adobe Premiere Pro crash?</strong><br>
+      A: Just crashed right now as of writing this actually<br><br>
+
+      <strong>Q: Are you open for freelance work?</strong><br>
+      A: Not right now, sorry!<br><br>
+    </p>
+  </article>
+</section>
+
+</body>
+</html>
