@@ -4,92 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="About Farrhan - Video Editor, Bassist, and Tech Enthusiast">
-  <title>farrhan. (about me)</title>
+  <title>farrhan. (qr)</title>
   <link href="https://fonts.googleapis.com/css2?family=PT+Mono&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="/assets/favicon.png">
-  <style>
-    /* CSS Variables */
-    :root {
-      --bg-page: #0B1215;
-      --bg-card: #F3F3F3;
-      --text: #0B1215;
-      --border: #0B1215;
-      --thick: 6px solid var(--border);
-      --thin: 3px solid var(--border);
-    }
-
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    /* Base Styles */
-    body {
-      color: var(--text);
-      font-family: 'PT Mono', monospace;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 1rem;
-      gap: 1rem;
-    }
-
-    /* Background Video */
-    #bg-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.3);
-      z-index: -100;
-    }
-
-    /* Card Container */
-    .card {
-      width: 100%;
-      max-width: 650px;
-      background-color: var(--bg-card);
-      border: var(--thin);
-    }
-
-    /* Header */
-    header {
-      padding: 1rem;
-      border-bottom: var(--thick);
-      text-align: center;
-      color: var(--text);
-    }
-
-    .back-link {
-      color: var(--text);
-      font-size: 1rem;
-      transition: opacity 0.2s ease;
-      display: inline-block;
-    }
-
-    .back-link:hover {
-      opacity: 0.7;
-    }
-
-    .qr-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .qr-wrapper img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-  </style>
+  <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
   <video autoplay muted loop playsinline id="bg-video">
@@ -103,12 +21,8 @@
     </header>
 
     <div class="qr-wrapper">
-      <!-- Replace qr.jpg with your actual filename if different -->
       <img src="/assets/qr.png" alt="QR code">
     </div>
-
   </main>
-</section>
-
 </body>
 </html>
