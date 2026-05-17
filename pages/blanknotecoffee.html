@@ -9,7 +9,6 @@
     />
     <title>Blank Note Coffee</title>
     <link rel="icon" type="image/png" href="/assets/favicon.png" />
-
     <link
       href="https://fonts.googleapis.com/css2?family=PT+Mono&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
@@ -24,6 +23,7 @@
         --border: #0b1215;
         --thick: 6px solid var(--border);
         --thin: 3px solid var(--border);
+        --hair: 1px solid rgba(11, 18, 21, 0.12);
         --mono: "PT Mono", monospace;
         --serif: "PT Serif", serif;
       }
@@ -36,6 +36,7 @@
         padding: 0;
         box-sizing: border-box;
       }
+
       html {
         scroll-behavior: smooth;
         -webkit-text-size-adjust: 100%;
@@ -99,10 +100,10 @@
         opacity: 0.5;
       }
 
-      /* ── NAV TABS ── */
+      /* ── NAV TABS (2 cols) ── */
       .tabs {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         border-bottom: var(--thick);
       }
 
@@ -143,6 +144,55 @@
         display: block;
       }
 
+      /* ── MENU SUB-NAV (Drinks / Food) ── */
+      .menu-subnav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        border-bottom: var(--thin);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: var(--bg-card);
+      }
+
+      .subnav-btn {
+        padding: 0.6rem 0.5rem;
+        background: none;
+        border: none;
+        border-right: var(--hair);
+        font-family: var(--mono);
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        cursor: pointer;
+        text-align: center;
+        transition: background 0.15s ease, opacity 0.15s ease;
+        -webkit-tap-highlight-color: transparent;
+        opacity: 0.35;
+      }
+
+      .subnav-btn:last-child {
+        border-right: none;
+      }
+
+      .subnav-btn:hover {
+        opacity: 0.65;
+      }
+
+      .subnav-btn.active {
+        opacity: 1;
+        box-shadow: inset 0 -3px 0 var(--border);
+      }
+
+      /* ── MENU COLUMNS ── */
+      .menu-col {
+        display: none;
+      }
+
+      .menu-col.active {
+        display: block;
+      }
+
       /* ── SECTION BLOCK ── */
       .block {
         padding: 1.25rem 1rem;
@@ -161,23 +211,56 @@
         margin-bottom: 0.6rem;
       }
 
-      /* ── MENU ── */
-      .menu-cat {
-        font-size: 0.65rem;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        border-bottom: var(--thick);
+      /* ── ACCORDION HEADER ── */
+      .accordion-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
         padding-bottom: 0.4rem;
+        border-bottom: var(--thick);
         margin-bottom: 0.2rem;
       }
 
+      .accordion-header .menu-cat-text {
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+      }
+
+      .accordion-toggle {
+        font-size: 0.55rem;
+        opacity: 0.3;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+        flex-shrink: 0;
+        margin-left: 0.5rem;
+      }
+
+      .accordion-header.open .accordion-toggle {
+        transform: rotate(180deg);
+        opacity: 0.6;
+      }
+
+      .accordion-body {
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s ease;
+      }
+
+      .accordion-body.open {
+        max-height: 9999px;
+      }
+
+      /* ── MENU ITEM ── */
       .menu-item {
         display: flex;
         justify-content: space-between;
         align-items: baseline;
         gap: 1rem;
-        padding: 0.75rem 0;
-        border-bottom: 1px solid rgba(11, 18, 21, 0.1);
+        padding: 0.6rem 0;
+        border-bottom: var(--hair);
       }
 
       .menu-item:last-child {
@@ -186,21 +269,37 @@
 
       .item-name {
         font-family: var(--serif);
-        font-size: 1.05rem;
+        font-size: 0.95rem;
         font-weight: 400;
       }
 
       .item-desc {
         display: block;
-        font-size: 0.65rem;
+        font-size: 0.6rem;
         opacity: 0.4;
-        margin-top: 0.1rem;
+        margin-top: 0.08rem;
       }
 
       .item-price {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         white-space: nowrap;
         opacity: 0.6;
+        flex-shrink: 0;
+      }
+
+      /* ── SUB-SECTION within a block ── */
+      .sub-section {
+        margin-top: 1rem;
+        padding-top: 0.75rem;
+        border-top: var(--thin);
+      }
+
+      .sub-label {
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        opacity: 0.5;
+        margin-bottom: 0.2rem;
       }
 
       /* ── HOURS ── */
@@ -208,7 +307,7 @@
         display: flex;
         justify-content: space-between;
         padding: 0.65rem 0;
-        border-bottom: 1px solid rgba(11, 18, 21, 0.1);
+        border-bottom: var(--hair);
         font-size: 0.85rem;
       }
 
@@ -238,10 +337,16 @@
 
       /* ── CONTACT LINK ── */
       .contact-link {
+        display: block;
         color: var(--text);
         font-size: 0.85rem;
         text-decoration: underline;
         text-underline-offset: 3px;
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-link:last-child {
+        margin-bottom: 0;
       }
 
       .contact-link:hover {
@@ -275,110 +380,27 @@
         <p class="tagline">Not just coffee &mdash; it's a daily note.</p>
       </header>
 
-      <!-- TAB NAV -->
-      <div class="tabs" role="tablist">
-        <button
-          class="tab active"
-          role="tab"
-          aria-selected="true"
-          data-target="menu"
-        >
-          Menu
-        </button>
-        <button
-          class="tab"
-          role="tab"
-          aria-selected="false"
-          data-target="story"
-        >
-          Story
-        </button>
-        <button
-          class="tab"
-          role="tab"
-          aria-selected="false"
-          data-target="visit"
-        >
-          Visit
-        </button>
-      </div>
+      <!-- TAB NAV — 2 tabs -->
+      <nav class="tabs" role="tablist">
+        <button class="tab active" role="tab" aria-selected="true"  data-target="info">Story &amp; Visit</button>
+        <button class="tab"        role="tab" aria-selected="false" data-target="menu">Menu</button>
+      </nav>
 
-      <!-- MENU PANEL -->
-      <section class="panel active" id="menu" role="tabpanel">
-        <div class="block">
-          <p class="menu-cat">Black &amp; White</p>
-          <div class="menu-item">
-            <div>
-              <span class="item-name">PUT DRINK HERE</span>
-              <span class="item-desc">Description</span>
-            </div>
-            <span class="item-price">RM 00</span>
-          </div>
-          <div class="menu-item">
-            <div>
-              <span class="item-name">PUT DRINK HERE</span>
-              <span class="item-desc">Description</span>
-            </div>
-            <span class="item-price">RM 00</span>
-          </div>
-          <div class="menu-item">
-            <div>
-              <span class="item-name">PUT DRINK HERE</span>
-              <span class="item-desc">Description</span>
-            </div>
-            <span class="item-price">RM 00</span>
-          </div>
-        </div>
+      <!-- ══════════════════════════════════
+           INFO PANEL (Story + Visit merged)
+      ══════════════════════════════════ -->
+      <section class="panel active" id="info" ...>
 
-        <div class="block">
-          <p class="menu-cat">Specialty</p>
-          <div class="menu-item">
-            <div>
-              <span class="item-name">PUT DRINK HERE</span>
-              <span class="item-desc">Description</span>
-            </div>
-            <span class="item-price">RM 00</span>
-          </div>
-          <div class="menu-item">
-            <div>
-              <span class="item-name">PUT DRINK HERE</span>
-              <span class="item-desc">Description</span>
-            </div>
-            <span class="item-price">RM 00</span>
-          </div>
-        </div>
-
-        <div class="block">
-          <p class="menu-cat">Food by Hello John</p>
-          <div class="menu-item">
-            <div>
-              <span class="item-name">PUT FOOD HERE</span>
-              <span class="item-desc">Description</span>
-            </div>
-            <span class="item-price">RM 00</span>
-          </div>
-          <div class="menu-item">
-            <div>
-              <span class="item-name">PUT FOOD HERE</span>
-              <span class="item-desc">Description</span>
-            </div>
-            <span class="item-price">RM 00</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- STORY PANEL -->
-      <section class="panel" id="story" role="tabpanel">
         <div class="block">
           <p class="block-label">About</p>
           <p style="font-size: 0.9rem; line-height: 1.7; opacity: 0.75;">
             Urban. Industrial. Casual.<br /><br />
-            Located in TTDI Jaya, Shah Alam — Blank Note Coffee is established
+            Located in TTDI Jaya, Shah Alam &mdash; Blank Note Coffee was established
             in 2024 as a side project.<br /><br />
-            We designed this cafe for both focus, and connection. Our space is
+            We designed this cafe for both focus and connection. Our space is
             surprisingly quiet even though it's right next to the highway.
-            Whether you are here to do some work or catch up with your friends,
-            we provide the blank canvas you need to unwind.<br /><br />
+            Whether you're here to get some work done or catch up with friends,
+            we provide the blank canvas you need to unwind.
           </p>
         </div>
 
@@ -391,29 +413,28 @@
             <div class="amenity">Surau Available</div>
           </div>
         </div>
-      </section>
 
-      <!-- VISIT PANEL -->
-      <section class="panel" id="visit" role="tabpanel">
         <div class="block">
           <p class="block-label">Location</p>
           <p style="font-size: 0.9rem; line-height: 1.7; opacity: 0.75;">
-            TTDI Jaya, Shah Alam<br />Selangor, Malaysia<br /><br />
-            <a href="https://www.youtube.com/watch?v=J2aJlb-bmuM" class="btn">
-              Click here to open on Waze!
-            </a>
+            TTDI Jaya, Shah Alam<br />
+            Selangor, Malaysia
           </p>
+          <br />
+          <a href="https://maps.app.goo.gl/eUhmSarEmPERkKWx6" class="contact-link">
+            Open in Google Maps
+          </a>
         </div>
 
         <div class="block">
           <p class="block-label">Hours</p>
           <div class="hours-row">
             <span>Sun, Mon, Wed, Thu</span>
-            <span>5 PM – 1 AM</span>
+            <span>5 PM &ndash; 1 AM</span>
           </div>
           <div class="hours-row">
-            <span>Fri – Sat</span>
-            <span>5 PM – 2 AM</span>
+            <span>Fri &ndash; Sat</span>
+            <span>5 PM &ndash; 2 AM</span>
           </div>
           <div class="hours-row closed">
             <span>Tuesday</span>
@@ -422,36 +443,255 @@
         </div>
 
         <div class="block">
-          <p class="block-label">Contact us</p>
+          <p class="block-label">Contact</p>
           <a class="contact-link" href="mailto:contact@blanknotecoffee.com">
             contact@blanknotecoffee.com
           </a>
+          <a class="contact-link" href="https://www.instagram.com/blanknotecoffee/">
+            @blanknotecoffee on Instagram
+          </a>
         </div>
+      </section>
+
+      <!-- ══════════════════════════════════
+           MENU PANEL
+      ══════════════════════════════════ -->
+      <section class="panel" id="menu" role="tabpanel">
+
+        <!-- Drinks / Food sub-nav -->
+        <div class="menu-subnav">
+          <button class="subnav-btn active" data-col="drinks">Drinks</button>
+          <button class="subnav-btn"        data-col="food">Food</button>
+        </div>
+
+        <!-- ── DRINKS ── -->
+        <div class="menu-col active" id="drinks">
+
+          <div class="block">
+            <div class="accordion-header open" data-acc="best-seller">
+              <span class="menu-cat-text">Best Seller</span>
+              <span class="accordion-toggle">&#9650;</span>
+            </div>
+            <div class="accordion-body open" id="best-seller">
+              <div class="menu-item"><div><span class="item-name">Blank Note Latte</span><span class="item-desc">(C) Cold only &mdash; iced 12oz</span></div><span class="item-price">RM13.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Cafe Latte</span></div><span class="item-price">RM10.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Spanish Latte</span></div><span class="item-price">RM11.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Caramel Macchiato</span></div><span class="item-price">RM13.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Choco Chill</span></div><span class="item-price">RM9.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Matcha Latte</span></div><span class="item-price">RM11.90</span></div>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="accordion-header open" data-acc="classic">
+              <span class="menu-cat-text">Classic</span>
+              <span class="accordion-toggle">&#9650;</span>
+            </div>
+            <div class="accordion-body open" id="classic">
+              <div class="menu-item"><div><span class="item-name">Americano</span></div><span class="item-price">RM8.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Cafe Latte</span></div><span class="item-price">RM10.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Cafe Mocha</span></div><span class="item-price">RM12.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Espresso</span></div><span class="item-price">RM7.90</span></div>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="accordion-header" data-acc="sweet-sip">
+              <span class="menu-cat-text">Sweet Sip Coffee</span>
+              <span class="accordion-toggle">&#9650;</span>
+            </div>
+            <div class="accordion-body" id="sweet-sip">
+              <div class="menu-item"><div><span class="item-name">Blank Note Latte</span><span class="item-desc">(C) Cold only &mdash; iced 12oz</span></div><span class="item-price">RM13.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Caramel Macchiato</span></div><span class="item-price">RM13.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Caramel Latte</span></div><span class="item-price">RM12.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Hazelnut Latte</span></div><span class="item-price">RM12.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Spanish Latte</span></div><span class="item-price">RM11.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Short Bread Latte</span></div><span class="item-price">RM12.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Strawberry Latte</span></div><span class="item-price">RM12.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Vanilla Latte</span></div><span class="item-price">RM12.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Orange Americano</span></div><span class="item-price">RM10.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Strawberry Americano</span></div><span class="item-price">RM10.90</span></div>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="accordion-header" data-acc="milky">
+              <span class="menu-cat-text">Milky Series</span>
+              <span class="accordion-toggle">&#9650;</span>
+            </div>
+            <div class="accordion-body" id="milky">
+              <div class="menu-item"><div><span class="item-name">Milky Strawberry</span></div><span class="item-price">RM10.90</span></div>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="accordion-header" data-acc="matcha">
+              <span class="menu-cat-text">Matcha</span>
+              <span class="accordion-toggle">&#9650;</span>
+            </div>
+            <div class="accordion-body" id="matcha">
+              <div class="menu-item"><div><span class="item-name">Matcha Latte</span></div><span class="item-price">RM11.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Strawberry Matcha</span></div><span class="item-price">RM14.90</span></div>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="accordion-header" data-acc="choco">
+              <span class="menu-cat-text">Chocolate</span>
+              <span class="accordion-toggle">&#9650;</span>
+            </div>
+            <div class="accordion-body" id="choco">
+              <div class="menu-item"><div><span class="item-name">Choco Chill</span></div><span class="item-price">RM9.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Strawberry Choco</span></div><span class="item-price">RM12.90</span></div>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="accordion-header" data-acc="sparkling">
+              <span class="menu-cat-text">Sparkling Drinks</span>
+              <span class="accordion-toggle">&#9650;</span>
+            </div>
+            <div class="accordion-body" id="sparkling">
+              <div class="menu-item"><div><span class="item-name">Blue Lagoon</span></div><span class="item-price">RM9.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Orange Burst</span></div><span class="item-price">RM9.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Berry Pop</span></div><span class="item-price">RM9.90</span></div>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="accordion-header" data-acc="addons">
+              <span class="menu-cat-text">Add-ons</span>
+              <span class="accordion-toggle">&#9650;</span>
+            </div>
+            <div class="accordion-body" id="addons">
+              <div class="menu-item"><div><span class="item-name">Extra Espresso Shot</span></div><span class="item-price">+RM3</span></div>
+              <div class="menu-item"><div><span class="item-name">Flavoured Syrup</span></div><span class="item-price">+RM2</span></div>
+              <div class="menu-item"><div><span class="item-name">Drizzle</span></div><span class="item-price">+RM2</span></div>
+              <div class="menu-item"><div><span class="item-name">Puree</span></div><span class="item-price">+RM2</span></div>
+              <div class="sub-section">
+                <p class="sub-label">Milk Choices (Latte / Non-Coffee)</p>
+                <div class="menu-item"><div><span class="item-name">Fresh Milk</span></div><span class="item-price">+RM1</span></div>
+                <div class="menu-item"><div><span class="item-name">Oatside Milk</span></div><span class="item-price">+RM3</span></div>
+              </div>
+              <div class="sub-section">
+                <p class="sub-label">Cup Size</p>
+                <div class="menu-item"><div><span class="item-name">(C) &mdash; Cold Only</span><span class="item-desc">Iced 12oz</span></div></div>
+                <div class="menu-item"><div><span class="item-name">(H) &mdash; Hot Only</span><span class="item-desc">Hot 9oz</span></div></div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- end #drinks -->
+
+        <!-- ── FOOD ── -->
+        <div class="menu-col" id="food">
+
+          <div class="block">
+            <div class="accordion-header open" data-acc="desserts">
+              <span class="menu-cat-text">Desserts</span>
+              <span class="accordion-toggle">&#9650;</span>
+            </div>
+            <div class="accordion-body open" id="desserts">
+              <div class="menu-item"><div><span class="item-name">Croissant</span></div><span class="item-price">RM12.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Cake</span></div><span class="item-price">RM15.90</span></div>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="accordion-header open" data-acc="main-course">
+              <span class="menu-cat-text">John's Main Course</span>
+              <span class="accordion-toggle">&#9650;</span>
+            </div>
+            <div class="accordion-body open" id="main-course">
+              <div class="menu-item"><div><span class="item-name">Signature Chunky Beef</span></div><span class="item-price">RM16.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Ocean Tuna</span></div><span class="item-price">RM15.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Chicken Crispy</span></div><span class="item-price">RM14.90</span></div>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="accordion-header" data-acc="snacks">
+              <span class="menu-cat-text">Snacks</span>
+              <span class="accordion-toggle">&#9650;</span>
+            </div>
+            <div class="accordion-body" id="snacks">
+              <div class="menu-item"><div><span class="item-name">Tangy Heat Fries</span></div><span class="item-price">RM9.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Curly Fries</span></div><span class="item-price">RM13.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Cheesy Crispy Chic Fries</span></div><span class="item-price">RM14</span></div>
+              <div class="menu-item"><div><span class="item-name">Onion Ring</span></div><span class="item-price">RM14.90</span></div>
+              <div class="menu-item">
+                <div><span class="item-name">Sausage Thai Set</span><span class="item-desc">3pcs / 7pcs / 15pcs</span></div>
+                <span class="item-price">RM12 / RM24 / RM45</span>
+              </div>
+              <div class="menu-item">
+                <div><span class="item-name">Lokching Ikan</span><span class="item-desc">10pcs / 22pcs / 36pcs</span></div>
+                <span class="item-price">RM12 / RM20 / RM30</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="accordion-header" data-acc="pasta">
+              <span class="menu-cat-text">Pasta</span>
+              <span class="accordion-toggle">&#9650;</span>
+            </div>
+            <div class="accordion-body" id="pasta">
+              <div class="menu-item"><div><span class="item-name">Crispy Cream</span></div><span class="item-price">RM13</span></div>
+              <div class="menu-item"><div><span class="item-name">Beef N Cream</span></div><span class="item-price">RM13.50</span></div>
+              <div class="menu-item"><div><span class="item-name">Mac N Beef</span></div><span class="item-price">RM16.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Fresh Bowl w/ Chic Crispy</span></div><span class="item-price">RM13.90</span></div>
+            </div>
+          </div>
+
+          <div class="block" style="opacity: 0.35;">
+            <p style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.15em;">
+              Food by HelloJohn &mdash; a collab kitchen
+            </p>
+          </div>
+
+        </div><!-- end #food -->
+
       </section>
     </main>
 
     <footer>
       <span class="footer-text">Blank Note Coffee</span>
-      <span class="footer-text">Est. 2026 &middot; Shah Alam</span>
+      <span class="footer-text">Est. 2024 &middot; Shah Alam</span>
     </footer>
 
     <script>
-      const tabs = document.querySelectorAll(".tab");
-      const panels = document.querySelectorAll(".panel");
-
-      tabs.forEach((tab) => {
+      // ── Main tabs
+      document.querySelectorAll(".tab").forEach((tab) => {
         tab.addEventListener("click", () => {
           const target = tab.dataset.target;
-
-          tabs.forEach((t) => {
+          document.querySelectorAll(".tab").forEach((t) => {
             t.classList.remove("active");
             t.setAttribute("aria-selected", "false");
           });
-          panels.forEach((p) => p.classList.remove("active"));
-
+          document.querySelectorAll(".panel").forEach((p) => p.classList.remove("active"));
           tab.classList.add("active");
           tab.setAttribute("aria-selected", "true");
           document.getElementById(target).classList.add("active");
+        });
+      });
+
+      // ── Menu sub-nav (Drinks / Food)
+      document.querySelectorAll(".subnav-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".subnav-btn").forEach((b) => b.classList.remove("active"));
+          document.querySelectorAll(".menu-col").forEach((c) => c.classList.remove("active"));
+          btn.classList.add("active");
+          document.getElementById(btn.dataset.col).classList.add("active");
+        });
+      });
+
+      // ── Accordions
+      document.querySelectorAll(".accordion-header").forEach((header) => {
+        header.addEventListener("click", () => {
+          const body   = document.getElementById(header.dataset.acc);
+          const isOpen = body.classList.contains("open");
+          body.classList.toggle("open", !isOpen);
+          header.classList.toggle("open", !isOpen);
         });
       });
     </script>
