@@ -4,28 +4,66 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>farrhan.</title>
-  <link href="https://fonts.googleapis.com/css2?family=PT+Mono&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="/assets/favicon.png">
   <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
 </head>
 <body>
+
   <video autoplay muted loop playsinline id="bg-video">
     <source src="/assets/bg-loop.mp4" type="video/mp4">
-    Your browser does not support the video tag.
   </video>
 
   <main class="card">
-    <header>
+
+    <div class="folio-bar reveal" data-delay="0">
+      <span>farrhan.&nbsp;&nbsp;(portfolio)</span>
+      <span id="folio-date"></span>
+    </div>
+
+    <header class="index-header reveal" data-delay="80">
       <h1 class="name">farrhan.</h1>
-      <p class="text">Video Editor · Bassist · Headphone Collector · JRPG Enjoyer</p>
+      <div class="tagline-group">
+        <p class="tagline-role">Video Editor&nbsp;&nbsp;·&nbsp;&nbsp;Bassist&nbsp;&nbsp;·&nbsp;&nbsp;Headphone Collector&nbsp;&nbsp;·&nbsp;&nbsp;JRPG Enjoyer</p>
+      </div>
     </header>
 
+    <div class="divider reveal" data-delay="160"></div>
+
     <nav>
-      <a href="/pages/about.html" class="btn">About Me</a>
-      <a href="/pages/links.html" class="btn">Links</a>
-      <a href="/pages/services.html" class="btn">Services</a>
-      <a href="/pages/equipment.html" class="btn">Equipment</a>
+      <a href="/pages/about.html" class="btn reveal" data-delay="220">
+        <span class="btn-num">01</span>
+        <span class="btn-label">About Me</span>
+        <span class="btn-arrow">→</span>
+      </a>
+      <a href="/pages/links.html" class="btn reveal" data-delay="280">
+        <span class="btn-num">02</span>
+        <span class="btn-label">Links</span>
+        <span class="btn-arrow">→</span>
+      </a>
+      <a href="/pages/services.html" class="btn reveal" data-delay="340">
+        <span class="btn-num">03</span>
+        <span class="btn-label">Services</span>
+        <span class="btn-arrow">→</span>
+      </a>
+      <a href="/pages/equipment.html" class="btn reveal" data-delay="400">
+        <span class="btn-num">04</span>
+        <span class="btn-label">Equipment</span>
+        <span class="btn-arrow">→</span>
+      </a>
     </nav>
+
   </main>
+
+  <script>
+    const d = new Date();
+    const pad = n => String(n).padStart(2, '0');
+    const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+    document.getElementById('folio-date').textContent =
+      `${pad(d.getDate())} ${months[d.getMonth()]} ${d.getFullYear()}`;
+    document.querySelectorAll('.reveal').forEach(el => {
+      el.style.animationDelay = (parseInt(el.dataset.delay) || 0) + 'ms';
+    });
+  </script>
+
 </body>
 </html>
