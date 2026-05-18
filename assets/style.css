@@ -136,7 +136,6 @@ header.index-header {
 
 .section-gap {
   border-top: var(--thick);
-  margin-top: 1.5rem;
 }
 
 /* ── NAVIGATION LIST COMPONENT (BUTTON ROW) ── */
