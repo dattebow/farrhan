@@ -3,7 +3,7 @@
 /* ── CONFIGURATION & VARIABLES ── */
 :root {
   --bg-page: #0B1215;
-  --bg-card: #EEEDE7;
+  --bg-card: #E7E7EB;
   --text: #0B1215;
   --border: #0B1215;
   --thick: 5px solid var(--border);
