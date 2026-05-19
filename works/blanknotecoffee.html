@@ -38,7 +38,6 @@
       }
 
       html {
-        scroll-behavior: smooth;
         -webkit-text-size-adjust: 100%;
       }
 
@@ -100,7 +99,7 @@
         opacity: 0.5;
       }
 
-      /* ── NAV TABS (2 cols) ── */
+      /* ── NAV TABS ── */
       .tabs {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -144,7 +143,7 @@
         display: block;
       }
 
-      /* ── MENU SUB-NAV (Drinks / Food) ── */
+      /* ── MENU SUB-NAV ── */
       .menu-subnav {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -211,7 +210,7 @@
         margin-bottom: 0.6rem;
       }
 
-      /* ── ACCORDION HEADER ── */
+      /* ── ACCORDION ── */
       .accordion-header {
         display: flex;
         justify-content: space-between;
@@ -287,7 +286,7 @@
         flex-shrink: 0;
       }
 
-      /* ── SUB-SECTION within a block ── */
+      /* ── SUB-SECTION ── */
       .sub-section {
         margin-top: 1rem;
         padding-top: 0.75rem;
@@ -368,6 +367,17 @@
         letter-spacing: 0.1em;
         color: rgba(243, 243, 243, 0.25);
       }
+
+      .footer-text a {
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        transition: opacity 0.15s;
+      }
+
+      .footer-text a:hover {
+        opacity: 0.6;
+      }
     </style>
   </head>
 
@@ -380,16 +390,16 @@
         <p class="tagline">Not just coffee &mdash; it's a daily note.</p>
       </header>
 
-      <!-- TAB NAV — 2 tabs -->
+      <!-- TAB NAV -->
       <nav class="tabs" role="tablist">
         <button class="tab active" role="tab" aria-selected="true"  data-target="info">Story &amp; Visit</button>
         <button class="tab"        role="tab" aria-selected="false" data-target="menu">Menu</button>
       </nav>
 
       <!-- ══════════════════════════════════
-           INFO PANEL (Story + Visit merged)
+           INFO PANEL
       ══════════════════════════════════ -->
-      <section class="panel active" id="info" ...>
+      <section class="panel active" id="info" role="tabpanel">
 
         <div class="block">
           <p class="block-label">About</p>
@@ -655,8 +665,8 @@
     </main>
 
     <footer>
-      <span class="footer-text">Blank Note Coffee</span>
-      <span class="footer-text">Est. 2024 &middot; Shah Alam</span>
+      <span class="footer-text">Blank Note Coffee &middot; Est. 2024</span>
+      <span class="footer-text">Created by <a href="https://farrhan.com" target="_blank">Farrhan</a></span>
     </footer>
 
     <script>

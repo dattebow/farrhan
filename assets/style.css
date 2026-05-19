@@ -193,6 +193,10 @@ nav {
   transition: color 0.15s;
 }
 
+.btn-arrow {
+  transition: transform 0.15s ease, color 0.15s, opacity 0.15s;
+}
+
 /* Simple button subvariant for back-links */
 .btn.simple {
   grid-template-columns: 1fr auto;
