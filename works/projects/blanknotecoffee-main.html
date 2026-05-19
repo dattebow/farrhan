@@ -61,6 +61,16 @@
         width: 100vw;
         height: 100vh;
         object-fit: cover;
+        z-index: -2;
+      }
+
+      #bg-dim {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.8);
         z-index: -1;
       }
 
@@ -358,6 +368,8 @@
         max-width: 650px;
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.25rem;
         padding: 0.25rem 0;
       }
 
@@ -365,7 +377,7 @@
         font-size: 0.6rem;
         text-transform: uppercase;
         letter-spacing: 0.1em;
-        color: rgba(243, 243, 243, 0.25);
+        color: rgba(255, 255, 255, 0.5);
       }
 
       .footer-text a {
@@ -383,6 +395,7 @@
 
   <body>
     <img src="/assets/brutalist.jpg" id="bg-image" alt="Brutalist architecture background" />
+    <div id="bg-dim"></div>
 
     <main class="card">
       <header>
@@ -666,6 +679,7 @@
 
     <footer>
       <span class="footer-text">Blank Note Coffee &middot; Est. 2024</span>
+      <span class="footer-text">Hosted by <a href="https://farrhan.com" target="_blank">farrhan.com</a></span>
       <span class="footer-text">Created by <a href="https://farrhan.com" target="_blank">Farrhan</a></span>
     </footer>
 

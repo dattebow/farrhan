@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>farrhan. (Blank Note Coffee Project)</title>
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+</head>
+<body>
+
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="/assets/bg-loop.mp4" type="video/mp4">
+  </video>
+
+  <main class="card card--wide">
+
+    <div class="folio-bar">
+      <a href="/pages/works.html" class="back-link">← Works &amp; Services</a>
+      <span id="folio-date"></span>
+    </div>
+
+    <div class="split-layout split-layout--project">
+
+      <div class="split-left">
+
+        <div class="project-header">
+          <h1 class="project-title">Blank Note Coffee</h1>
+          <a href="/works/projects/blanknotecoffee-main.html" target="_blank" rel="noopener noreferrer" class="project-link">blanknotecoffee ↗</a>
+        </div>
+
+        <div class="text">
+          <p>
+            Urban. Industrial. Casual.
+          </p>
+          <p>
+            That's how the owner of Blank Note Coffee- a cafe in TTDI Shah Alam- describes the place. This was my final project for my Art and Design course at INTI International College Subang Jaya.
+          </p>
+        </div>
+
+        <div class="project-faq">
+          <h2 class="project-faq-title">FAQ</h2>
+
+          <div class="faq-item">
+            <p class="faq-q">What does the site include?</p>
+            <p class="faq-a">A menu, an about page, and a contact page. Everything a cafe site needs.</p>
+          </div>
+
+          <div class="faq-item">
+            <p class="faq-q">What's it built with?</p>
+            <p class="faq-a">HTML and CSS. Currently hosted under farrhan.com until the cafe gets its own domain sorted.</p>
+          </div>
+
+          <div class="faq-item">
+            <p class="faq-q">How did it go?</p>
+            <p class="faq-a">Got praised by the higher-ups. I'll take it.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="split-right">
+        <div class="split-photo">
+          <img src="/assets/blanknotecoffee.png" alt="Blank Note Coffee website screenshot" onerror="this.style.display='none'">
+          <span class="split-photo-placeholder">Photo or screenshot</span>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    const d = new Date();
+    const pad = n => String(n).padStart(2, '0');
+    const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+    document.getElementById('folio-date').textContent =
+      `${pad(d.getDate())} ${months[d.getMonth()]} ${d.getFullYear()}`;
+  </script>
+
+</body>
+</html>

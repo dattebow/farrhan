@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
 
 /* ── CONFIGURATION & VARIABLES ── */
 :root {
@@ -6,10 +6,9 @@
   --bg-card: #E7E7EB;
   --text: #0B1215;
   --border: #0B1215;
-  --thick: 5px solid var(--border);
-  --thin: 2px solid var(--border);
-  --rule: 1px solid rgba(11, 18, 21, 0.15);
-  --font-display: 'PT Serif', serif;
+  --rule-thick: 2px solid var(--border);
+  --rule-thin: 1px solid rgba(11, 18, 21, 0.15);
+  --font-display: 'Spectral', serif;
   --font-body: 'Inter', sans-serif;
 }
 
@@ -63,7 +62,7 @@ body {
   max-width: 580px;
   background-color: var(--bg-card);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-  border: var(--thin);
+  border: var(--rule-thick);
 }
 
 /* ── TOP UTILITY BAR (FOLIO BAR) ── */
@@ -72,14 +71,12 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1.25rem;
-  border-bottom: var(--rule);
+  border-bottom: var(--rule-thick);
   font-family: var(--font-body);
-  font-size: 0.63rem;
+  font-size: 0.65rem;
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: var(--text);
-  opacity: 0.55;
 }
 
 .folio-bar a {
@@ -126,16 +123,12 @@ header.index-header {
 
 /* ── STRUCTURAL LINES & DIVIDERS ── */
 .divider {
-  border-top: var(--thick);
+  border-top: var(--rule-thick);
 }
 
 .section-rule {
-  border-top: var(--rule);
+  border-top: var(--rule-thin);
   margin: 0 1.25rem;
-}
-
-.section-gap {
-  border-top: var(--thick);
 }
 
 /* ── NAVIGATION LIST COMPONENT (BUTTON ROW) ── */
@@ -152,7 +145,7 @@ nav {
   background: transparent;
   color: var(--text);
   text-decoration: none;
-  border-bottom: var(--rule);
+  border-bottom: var(--rule-thin);
   transition: background 0.15s ease, padding-left 0.15s ease;
 }
 
@@ -230,7 +223,7 @@ nav {
   letter-spacing: -0.02em;
   color: var(--text);
   padding: 1.1rem 1.25rem 0.9rem;
-  border-bottom: var(--thick);
+  border-bottom: var(--rule-thick);
 }
 
 /* Subheadings inside page modules */
@@ -242,14 +235,14 @@ nav {
   color: var(--text);
   padding: 0.85rem 1.25rem 0.6rem;
   opacity: 0.75;
-  border-bottom: var(--rule);
+  border-bottom: var(--rule-thin);
 }
 
 /* Headings embedded inside a padded text block */
 .inline-title {
   padding: 0 0 0.75rem 0;
   margin-bottom: 0.75rem;
-  border-bottom: var(--rule);
+  border-bottom: var(--rule-thin);
 }
 
 /* Stacked header variations */
@@ -263,9 +256,9 @@ nav {
 .works-link {
   display: inline-block;
   font-family: var(--font-body);
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text);
   text-decoration: none;
@@ -308,6 +301,11 @@ mark {
   color: var(--text);
 }
 
+/* ── SECTION GAP (THICK BORDER BETWEEN SECTIONS) ── */
+.section-gap {
+  border-top: var(--rule-thick);
+}
+
 /* ── EQUIPMENT GRID COMPONENT ── */
 .equipment-grid {
   display: grid;
@@ -325,7 +323,7 @@ mark {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
-  border: var(--thin);
+  border: var(--rule-thick);
   background: #fff;
 }
 
@@ -344,7 +342,7 @@ mark {
   display: grid;
   gap: 0.3rem;
   padding: 1rem 1.25rem;
-  border-bottom: var(--thick);
+  border-bottom: var(--rule-thick);
 }
 
 .jump-link {
@@ -353,18 +351,18 @@ mark {
   align-items: center;
   padding: 0.6rem 0;
   font-family: var(--font-body);
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-weight: 500;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   color: var(--text);
   text-decoration: none;
-  border-bottom: var(--rule);
+  border-bottom: var(--rule-thin);
   transition: opacity 0.15s;
 }
 
 .jump-link:last-child { border-bottom: none; }
 .jump-link:hover      { opacity: 0.55; }
-.jump-link span       { opacity: 0.35; font-size: 0.75rem; }
+.jump-link span       { opacity: 0.35; font-size: 0.72rem; }
 
 /* ── SERVICE RATES GRID COMPONENT ── */
 .rates-grid {
@@ -374,7 +372,7 @@ mark {
 
 .rate-item {
   padding: 1rem 1.25rem;
-  border-bottom: var(--rule);
+  border-bottom: var(--rule-thin);
 }
 
 .rate-item:last-child { border-bottom: none; }
@@ -396,13 +394,13 @@ mark {
 
 .rate-price {
   font-family: var(--font-body);
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-weight: 600;
   white-space: nowrap;
   background: var(--text);
   color: var(--bg-card);
   padding: 0.15rem 0.5rem;
-  letter-spacing: 0.02em;
+  letter-spacing: 0;
 }
 
 .rate-sub {
@@ -436,7 +434,7 @@ mark {
   justify-content: space-between;
   align-items: center;
   padding: 0.65rem 1.25rem;
-  border-bottom: var(--rule);
+  border-bottom: var(--rule-thin);
   gap: 1rem;
 }
 
@@ -451,7 +449,7 @@ mark {
 
 .addon-price {
   font-family: var(--font-body);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
   color: var(--text);
   opacity: 0.6;
@@ -490,20 +488,245 @@ mark {
 
 .card-footer {
   padding: 0.85rem 1.25rem;
-  border-top: var(--rule);
+  border-top: var(--rule-thin);
   font-family: var(--font-body);
   font-size: 0.72rem;
   font-weight: 400;
   color: var(--text);
-  opacity: 0.5;
+  opacity: 0.55;
   text-align: center;
 }
 
-/* ── RESPONSIVE RESPONSIVENESS BREAKPOINTS ── */
+/* ── BTN BODY: label + description stack ── */
+.btn-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.15rem;
+}
+
+.btn-desc {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--text);
+  opacity: 0.55;
+  letter-spacing: 0;
+  transition: color 0.15s, opacity 0.15s;
+}
+
+.btn:hover .btn-desc {
+  color: var(--bg-card);
+  opacity: 0.75;
+}
+
+/* ── SPLIT LAYOUT (index + project pages) ── */
+.card--wide {
+  max-width: 880px;
+}
+
+.split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  min-height: 480px;
+  align-items: stretch;
+}
+
+.split-left {
+  display: flex;
+  flex-direction: column;
+  border-right: var(--rule-thick);
+}
+
+.split-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.split-photo {
+  position: relative;
+  flex: 1;
+  background: #c8c8cc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 320px;
+}
+
+.split-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.split-photo-placeholder {
+  position: absolute;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.55);
+  pointer-events: none;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Hide placeholder text when image loads successfully */
+.split-photo img + .split-photo-placeholder {
+  display: none;
+}
+
+.split-photo--empty img {
+  display: none;
+}
+
+/* ── PROJECT DETAIL PAGE ── */
+.split-layout--project .split-left {
+  overflow-y: auto;
+}
+
+.project-header {
+  padding: 1.25rem 1.25rem 0.75rem;
+  border-bottom: var(--rule-thick);
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.project-link {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+  opacity: 0.55;
+  transition: opacity 0.15s;
+}
+
+.project-link:hover {
+  opacity: 1;
+}
+
+.project-faq {
+  padding: 0 1.25rem 1.25rem;
+  border-top: var(--rule-thick);
+  margin-top: auto;
+}
+
+.project-faq-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  padding: 0.85rem 0 0.6rem;
+  border-bottom: var(--rule-thin);
+  margin-bottom: 0.25rem;
+}
+
+.faq-item {
+  padding: 0.75rem 0;
+  border-bottom: var(--rule-thin);
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-q {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+}
+
+.faq-a {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--text);
+  opacity: 0.65;
+  line-height: 1.5;
+}
+
+/* ── STATUS BAR ── */
+.status-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(11, 18, 21, 0.7);
+  border-top: var(--rule-thick);
+  margin-top: auto;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* ── SERVICE PAGE SPLIT ── */
+.split-layout--service .split-left,
+.split-layout--service .split-right {
+  overflow-y: auto;
+}
+
+/* ── ABOUT PAGE SPLIT ── */
+.split-layout--about {
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+}
+
+.split-layout--about .faq-body {
+  padding: 0 1.25rem 1.25rem;
+}
+
+/* ── RESPONSIVE BREAKPOINTS ── */
 @media (max-width: 700px) {
   .equipment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
+@media (max-width: 620px) {
+  .split-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .split-left {
+    border-right: none;
+    border-bottom: var(--rule-thick);
+  }
+
+  .split-photo {
+    min-height: 240px;
+  }
+
+  .card--wide {
+    max-width: 580px;
+  }
+
+  .split-layout--about {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 520px) {
-  .equipment-item p { font-size: 0.68rem; }
+  .equipment-item p { font-size: 0.65rem; }
 }

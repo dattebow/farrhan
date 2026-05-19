@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>farrhan. (dattebow Project)</title>
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+</head>
+<body>
+
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="/assets/bg-loop.mp4" type="video/mp4">
+  </video>
+
+  <main class="card card--wide">
+
+    <div class="folio-bar">
+      <a href="/pages/works.html" class="back-link">← Works &amp; Services</a>
+      <span id="folio-date"></span>
+    </div>
+
+    <div class="split-layout split-layout--project">
+
+      <div class="split-left">
+
+        <div class="project-header">
+          <h1 class="project-title">dattebow</h1>
+          <a href="https://www.youtube.com/@dattebow" target="_blank" rel="noopener noreferrer" class="project-link">youtube.com/@dattebow ↗</a>
+        </div>
+
+        <div class="text">
+          <p>
+            Most of my friends play games- just not the same ones as me. And sometimes you want to talk about something more than just "yeah that game was cool." So I made a YouTube channel. Started out of boredom, turned into an outlet for talking about games, tech, and whatever else is on my mind. I like everything about making content, so here we are.
+          </p>
+        </div>
+
+        <div class="project-faq">
+          <h2 class="project-faq-title">FAQ</h2>
+
+          <div class="faq-item">
+            <p class="faq-q">Why did you start dattebow??</p>
+            <p class="faq-a">I like making content. And because I was bored. No grand vision, no five-year plan. I was just bored.</p>
+          </div>
+
+          <div class="faq-item">
+            <p class="faq-q">How often do you upload??</p>
+            <p class="faq-a">Not often. Only when I feel like it. Who knows? Maybe one day I'll have a proper schedule for it</p>
+          </div>
+
+          <div class="faq-item">
+            <p class="faq-q">What's your setup / how do you make your videos?</p>
+            <p class="faq-a">It starts in <a href="https://obsidian.md" target="_blank">Obsidian</a> where I script everything out. A-roll and B-roll are shot using either an action camera or a mirrorless (full gear list on the <a href="/pages/equipment.html" target="_blank">equipment page</a>). Everything gets stitched together in Adobe Premiere Pro. Then something magical happens. And then BOOM- video's up. Something like that.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="split-right">
+        <div class="split-photo">
+          <img src="/assets/dattebow-youtube.png" alt="dattebow YouTube channel" onerror="this.style.display='none'">
+          <span class="split-photo-placeholder">Photo or screenshot</span>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    const d = new Date();
+    const pad = n => String(n).padStart(2, '0');
+    const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+    document.getElementById('folio-date').textContent =
+      `${pad(d.getDate())} ${months[d.getMonth()]} ${d.getFullYear()}`;
+  </script>
+
+</body>
+</html>
