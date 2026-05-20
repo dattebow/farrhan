@@ -699,6 +699,91 @@ mark {
   padding: 0 1.25rem 1.25rem;
 }
 
+/* ── PORTFOLIO GRID ── */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: var(--rule-thin);
+}
+
+.portfolio-item {
+  display: block;
+  text-decoration: none;
+  color: var(--text);
+  border-right: var(--rule-thin);
+  border-bottom: var(--rule-thin);
+}
+
+.portfolio-item:nth-child(3n) {
+  border-right: none;
+}
+
+.portfolio-thumb {
+  position: relative;
+  width: 100%;
+  background: #c8c8cc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: filter 0.15s;
+}
+
+.portfolio-thumb--video  { aspect-ratio: 16 / 9; }
+.portfolio-thumb--design { aspect-ratio: 1 / 1; }
+
+.portfolio-thumb img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.portfolio-thumb-label {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(11, 18, 21, 0.35);
+  pointer-events: none;
+}
+
+.portfolio-meta {
+  padding: 0.55rem 0.75rem;
+  border-top: var(--rule-thin);
+  transition: background 0.15s;
+}
+
+.portfolio-title {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.1rem;
+  transition: color 0.15s;
+}
+
+.portfolio-sub {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text);
+  opacity: 0.4;
+  transition: color 0.15s, opacity 0.15s;
+}
+
+.portfolio-item:hover .portfolio-thumb  { filter: brightness(0.85); }
+.portfolio-item:hover .portfolio-meta   { background: var(--text); }
+.portfolio-item:hover .portfolio-title  { color: var(--bg-card); }
+.portfolio-item:hover .portfolio-sub    { color: var(--bg-card); opacity: 0.6; }
+
 /* ── RESPONSIVE BREAKPOINTS ── */
 @media (max-width: 700px) {
   .equipment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -721,6 +806,10 @@ mark {
   .card--wide {
     max-width: 580px;
   }
+
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  .portfolio-item:nth-child(3n) { border-right: var(--rule-thin); }
+  .portfolio-item:nth-child(2n) { border-right: none; }
 
   .split-layout--about {
     grid-template-columns: 1fr;
