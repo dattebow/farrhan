@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>farrhan. (farrhan.com Project)</title>
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+</head>
+<body>
+
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="/assets/bg-loop.mp4" type="video/mp4">
+  </video>
+
+  <main class="card card--wide">
+
+    <div class="folio-bar">
+      <a href="/pages/works.html" class="back-link">← Works &amp; Services</a>
+      <span id="folio-date"></span>
+    </div>
+
+    <div class="split-layout split-layout--project">
+
+      <div class="split-left">
+
+        <div class="project-header">
+          <h1 class="project-title">farrhan.com</h1>
+          <a href="https://farrhan.com" target="_blank" rel="noopener noreferrer" class="project-link">farrhan.com ↗</a>
+        </div>
+
+        <div class="text">
+          <p>
+            You're on it right now!
+          </p>
+          <p>
+            A portfolio site built from scratch- no frameworks, no templates, just HTML and CSS. Made it because I wanted somewhere to point clients to, and because having a proper domain opens up a lot of doors. It also doubles as a hub for my self-hosted services.
+          </p>
+        </div>
+
+        <div class="project-faq">
+          <h2 class="project-faq-title">FAQ</h2>
+
+          <div class="faq-item">
+            <p class="faq-q">Why did you build this yourself?</p>
+            <p class="faq-a">Using a site builder felt like cheating. Building it by hand means I know exactly what's in it and why.</p>
+          </div>
+
+          <div class="faq-item">
+            <p class="faq-q">What's it built with?</p>
+            <p class="faq-a">Plain HTML and CSS. Hosted on GitHub Pages. Nothing fancy.</p>
+          </div>
+
+          <div class="faq-item">
+            <p class="faq-q">Why bother having a personal domain?</p>
+            <p class="faq-a">A domain name is useful. It's a permanent address you actually own- one place to send clients, link projects, and tie everything together.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="split-right">
+        <div class="split-photo">
+          <img src="/assets/projects/farrhan-com.png" alt="farrhan.com screenshot" onerror="this.style.display='none'">
+          <span class="split-photo-placeholder">Photo or screenshot</span>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    const d = new Date();
+    const pad = n => String(n).padStart(2, '0');
+    const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+    document.getElementById('folio-date').textContent =
+      `${pad(d.getDate())} ${months[d.getMonth()]} ${d.getFullYear()}`;
+  </script>
+
+</body>
+</html>
