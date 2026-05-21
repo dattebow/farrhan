@@ -4,7 +4,20 @@
       "Bash(git mv *)",
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(ls \"D:\\\\GitHub\")",
+      "Bash(Get-ChildItem \"D:\\\\GitHub\" -Recurse -Depth 2 -Directory)",
+      "Bash(Select-Object FullName)",
+      "Bash(find /mnt/d/GitHub -maxdepth 3 -type d 2>/dev/null)",
+      "Bash(npm run *)",
+      "Bash(where.exe npm *)",
+      "Bash(where.exe node *)",
+      "Bash(ls \"/c/Users/Farrhan/AppData/Local/\" 2>/dev/null | grep -i node)",
+      "Bash(ls \"/c/Users/Farrhan/\" 2>/dev/null)",
+      "PowerShell(Get-Command node -ErrorAction SilentlyContinue)",
+      "PowerShell(try { \\(Get-Command node -ErrorAction Stop\\).Source } catch { \"not found in PATH\" })",
+      "PowerShell(Get-ChildItem \"C:\\\\Program Files\\\\nodejs\", \"C:\\\\Program Files \\(x86\\)\\\\nodejs\", \"$env:APPDATA\\\\npm\", \"$env:LOCALAPPDATA\\\\Programs\\\\nodejs\" -ErrorAction SilentlyContinue | Select-Object FullName)",
+      "PowerShell($env:PATH = \"C:\\\\Program Files\\\\nodejs;\" + $env:PATH; Set-Location \"D:\\\\GitHub\\\\obsidian-emo-uploader-privaterepo\"; npm install 2>&1)"
     ]
   }
 }
