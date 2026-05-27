@@ -42,19 +42,6 @@ body {
   z-index: -100;
 }
 
-/* ── REVEAL ANIMATIONS ── */
-.reveal {
-  opacity: 0;
-  transform: translateY(10px);
-  animation: revealIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes revealIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 /* ── CONTAINER COMPONENT (THE CARD) ── */
 .card {
@@ -82,7 +69,6 @@ body {
 .folio-bar a {
   color: var(--text);
   text-decoration: none;
-  transition: opacity 0.15s;
 }
 
 .folio-bar a:hover {
@@ -142,7 +128,6 @@ nav {
   color: var(--text);
   text-decoration: none;
   border-bottom: var(--rule-thin);
-  transition: background 0.15s ease, padding-left 0.15s ease;
 }
 
 .btn:hover {
@@ -157,10 +142,6 @@ nav {
   opacity: 1;
 }
 
-.btn:hover .btn-arrow {
-  transform: translateX(4px);
-}
-
 .btn-num {
   font-family: var(--font-body);
   font-size: 0.6rem;
@@ -169,7 +150,6 @@ nav {
   color: var(--text);
   opacity: 0.3;
   text-align: left;
-  transition: color 0.15s, opacity 0.15s;
 }
 
 .btn-label {
@@ -179,13 +159,7 @@ nav {
   letter-spacing: -0.01em;
   color: var(--text);
   text-align: right;
-  transition: color 0.15s;
 }
-
-.btn-arrow {
-  transition: transform 0.15s ease, color 0.15s, opacity 0.15s;
-}
-
 
 .back-link {
   color: var(--text);
@@ -195,7 +169,6 @@ nav {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   text-decoration: none;
-  transition: opacity 0.2s;
   display: inline-block;
 }
 
@@ -246,7 +219,6 @@ nav {
   color: var(--text);
   text-decoration: underline;
   text-underline-offset: 3px;
-  transition: opacity 0.15s;
 }
 
 .text a:hover {
@@ -317,7 +289,6 @@ mark {
   color: var(--text);
   text-decoration: none;
   border-bottom: var(--rule-thin);
-  transition: opacity 0.15s;
 }
 
 .jump-link:last-child { border-bottom: none; }
@@ -466,7 +437,6 @@ mark {
   color: var(--text);
   opacity: 0.55;
   letter-spacing: 0;
-  transition: color 0.15s, opacity 0.15s;
 }
 
 .btn:hover .btn-desc {
@@ -555,7 +525,6 @@ mark {
   color: var(--text);
   text-decoration: none;
   opacity: 0.55;
-  transition: opacity 0.15s;
 }
 
 .project-link:hover {
@@ -672,7 +641,6 @@ mark {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  transition: filter 0.15s;
 }
 
 .portfolio-thumb--video  { aspect-ratio: 16 / 9; }
@@ -699,7 +667,6 @@ mark {
 .portfolio-meta {
   padding: 0.55rem 0.75rem;
   border-top: var(--rule-thin);
-  transition: background 0.15s;
 }
 
 .portfolio-title {
@@ -710,7 +677,6 @@ mark {
   color: var(--text);
   letter-spacing: -0.01em;
   margin-bottom: 0.1rem;
-  transition: color 0.15s;
 }
 
 .portfolio-sub {
@@ -722,7 +688,6 @@ mark {
   text-transform: uppercase;
   color: var(--text);
   opacity: 0.7;
-  transition: color 0.15s, opacity 0.15s;
 }
 
 .portfolio-item:hover .portfolio-thumb  { filter: brightness(0.85); }

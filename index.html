@@ -18,7 +18,7 @@
 
   <main class="card card--wide">
 
-    <div class="folio-bar reveal" data-delay="0">
+    <div class="folio-bar">
       <span>farrhan.&nbsp;&nbsp;(portfolio)</span>
       <span id="folio-date"></span>
     </div>
@@ -26,7 +26,7 @@
     <div class="split-layout">
 
       <div class="split-left">
-        <header class="index-header reveal" data-delay="80">
+        <header class="index-header">
           <h1 class="name">farrhan.</h1>
           <div class="tagline-group">
             <p class="tagline-role">Video Editor since 2014</p>
@@ -34,49 +34,49 @@
           </div>
         </header>
 
-        <div class="divider reveal" data-delay="160"></div>
+        <div class="divider"></div>
 
         <nav>
-          <a href="/pages/about.html" class="btn reveal" data-delay="220">
+          <a href="/pages/about.html" class="btn">
             <span class="btn-num">01</span>
             <span class="btn-label">About Me</span>
             <span class="btn-arrow">→</span>
           </a>
-          <a href="/pages/links.html" class="btn reveal" data-delay="280">
+          <a href="/pages/links.html" class="btn">
             <span class="btn-num">02</span>
             <span class="btn-label">Links</span>
             <span class="btn-arrow">→</span>
           </a>
-          <a href="/pages/services.html" class="btn reveal" data-delay="340">
+          <a href="/pages/services.html" class="btn">
             <span class="btn-num">03</span>
             <span class="btn-label">Services</span>
             <span class="btn-arrow">→</span>
           </a>
-          <a href="/pages/works.html" class="btn reveal" data-delay="400">
+          <a href="/pages/works.html" class="btn">
             <span class="btn-num">04</span>
             <span class="btn-label">Projects</span>
             <span class="btn-arrow">→</span>
           </a>
-          <a href="/pages/equipment.html" class="btn reveal" data-delay="460">
+          <a href="/pages/equipment.html" class="btn">
             <span class="btn-num">05</span>
             <span class="btn-label">Equipment</span>
             <span class="btn-arrow">→</span>
           </a>
-          <a href="mailto:dip@farrhan.com" class="btn reveal" data-delay="520">
+          <a href="mailto:dip@farrhan.com" class="btn">
             <span class="btn-num">06</span>
             <span class="btn-label">Contact</span>
             <span class="btn-arrow">→</span>
           </a>
         </nav>
 
-        <div class="status-bar reveal" data-delay="580">
+        <div class="status-bar">
           <span class="status-dot"></span>
           <span>Currently taking projects</span>
         </div>
 
       </div>
 
-      <div class="split-right reveal" data-delay="160">
+      <div class="split-right">
         <div class="split-photo">
           <img src="/assets/me.JPG" alt="farrhan." onerror="this.style.display='none'">
         </div>
@@ -92,9 +92,6 @@
     const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
     document.getElementById('folio-date').textContent =
       `${pad(d.getDate())} ${months[d.getMonth()]} ${d.getFullYear()}`;
-    document.querySelectorAll('.reveal').forEach(el => {
-      el.style.animationDelay = (parseInt(el.dataset.delay) || 0) + 'ms';
-    });
   </script>
 
 </body>
