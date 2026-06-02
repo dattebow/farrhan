@@ -402,13 +402,6 @@ mark {
   display: block;
 }
 
-
-.card-footer a {
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
 .card-footer {
   padding: 0.85rem 1.25rem;
   border-top: var(--rule-thin);
@@ -420,6 +413,12 @@ mark {
   color: var(--text);
   opacity: 0.7;
   text-align: center;
+}
+
+.card-footer a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* ── BTN BODY: label + description stack ── */
@@ -716,8 +715,8 @@ mark {
   }
 
   .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-  .portfolio-item:nth-child(3n) { border-right: var(--rule-thin); }
   .portfolio-item:nth-child(2n) { border-right: none; }
+  .portfolio-item:nth-child(odd) { border-right: var(--rule-thin); }
 
   .split-layout--about {
     grid-template-columns: 1fr;

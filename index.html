@@ -86,13 +86,7 @@
 
   </main>
 
-  <script>
-    const d = new Date();
-    const pad = n => String(n).padStart(2, '0');
-    const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
-    document.getElementById('folio-date').textContent =
-      `${pad(d.getDate())} ${months[d.getMonth()]} ${d.getFullYear()}`;
-  </script>
+  <script src="/assets/date-display.js"></script>
 
 </body>
 </html>
