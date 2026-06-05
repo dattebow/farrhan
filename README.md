@@ -32,30 +32,6 @@ split-layout for pages that need two columns. Most of the motion is CSS - stagge
 the homepage via `animation-delay`, nothing that requires JavaScript to pull off. The only JS
 on the site is for displaying a live date in the header and triggering the reveal animations.
 
-## Structure
-
-```
-/
-├── index.html
-├── pages/
-│   ├── about.html
-│   ├── links.html
-│   ├── works.html
-│   ├── services.html
-│   ├── equipment.html
-│   ├── qr.html
-│   ├── farrhan-com.html
-│   ├── dattebow.html
-│   ├── blanknotecoffee-landing.html
-│   ├── blanknotecoffee-main.html
-│   ├── hellojohn-landing.html
-│   ├── hellojohn-main.html
-│   ├── graphic-design.html
-│   ├── video-editing.html
-│   └── vod-scrubbing.html
-└── assets/
-```
-
 ## Why hand-built
 
 Using a site builder felt like cheating. If something breaks, I want to know exactly why and
