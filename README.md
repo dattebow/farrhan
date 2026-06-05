@@ -41,16 +41,18 @@ on the site is for displaying a live date in the header and triggering the revea
 │   ├── about.html
 │   ├── links.html
 │   ├── works.html
+│   ├── services.html
 │   ├── equipment.html
-│   └── qr.html
-├── works/
-│   ├── services/
-│   │   ├── video-editing.html
-│   │   └── graphic-design.html
-│   └── projects/
-│       ├── dattebow.html
-│       ├── farrhan.com.html
-│       └── blanknotecoffee-landing.html
+│   ├── qr.html
+│   ├── farrhan-com.html
+│   ├── dattebow.html
+│   ├── blanknotecoffee-landing.html
+│   ├── blanknotecoffee-main.html
+│   ├── hellojohn-landing.html
+│   ├── hellojohn-main.html
+│   ├── graphic-design.html
+│   ├── video-editing.html
+│   └── vod-scrubbing.html
 └── assets/
 ```
 

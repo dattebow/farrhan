@@ -593,7 +593,7 @@ mark {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: currentColor;
+  background: #4caf6e;
   flex-shrink: 0;
 }
 
