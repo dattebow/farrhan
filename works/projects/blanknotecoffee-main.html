@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Blank Note Coffee — Not Just Coffee. It's a Daily Note. TTDI Jaya, Shah Alam."
+      content="Blank Note Coffee - Not Just Coffee. It's a Daily Note. TTDI Jaya, Shah Alam."
     />
     <title>Blank Note Coffee</title>
     <link rel="icon" type="image/png" href="/assets/favicon.png" />
@@ -86,6 +86,33 @@
       header {
         padding: 1.5rem 1rem 1rem;
         border-bottom: var(--thick);
+      }
+
+      .header-brand {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+      }
+
+      .header-brand .brand {
+        text-align: right;
+      }
+
+      .logo-placeholder {
+        width: 40px;
+        height: 40px;
+        border: 2px dashed rgba(11, 18, 21, 0.3);
+        border-radius: 4px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.45rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        opacity: 0.4;
+        line-height: 1.3;
         text-align: center;
       }
 
@@ -107,6 +134,65 @@
         text-transform: uppercase;
         letter-spacing: 0.08em;
         opacity: 0.5;
+        text-align: right;
+      }
+
+      .collab-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        margin-top: 1rem;
+        padding: 0.6rem 1rem;
+        background: var(--border);
+        color: var(--bg-card);
+        font-family: var(--mono);
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        text-decoration: none;
+        transition: opacity 0.15s;
+      }
+
+      .collab-btn:hover { opacity: 0.75; }
+
+      /* ── ACTION BUTTONS ── */
+      .action-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0.5rem;
+      }
+
+      .action-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.3rem;
+        padding: 0.85rem 0.5rem;
+        border: var(--thin);
+        text-decoration: none;
+        color: var(--text);
+        text-align: center;
+        transition: background 0.15s, color 0.15s;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .action-btn:hover {
+        background: var(--border);
+        color: var(--bg-card);
+      }
+
+      .action-btn .action-label {
+        font-size: 0.55rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      .action-btn .action-sub {
+        font-size: 0.5rem;
+        opacity: 0.45;
+        letter-spacing: 0.05em;
       }
 
       /* ── NAV TABS ── */
@@ -399,8 +485,11 @@
 
     <main class="card">
       <header>
-        <h1 class="brand">Blank <em>Note</em> Coffee</h1>
-        <p class="tagline">Not just coffee &mdash; it's a daily note.</p>
+        <div class="header-brand">
+          <div class="logo-placeholder">Logo<br>Here</div>
+          <h1 class="brand">Blank <em>Note</em> Coffee</h1>
+        </div>
+        <p class="tagline">Not just coffee - it's a daily note.</p>
       </header>
 
       <!-- TAB NAV -->
@@ -418,13 +507,31 @@
           <p class="block-label">About</p>
           <p style="font-size: 0.9rem; line-height: 1.7; opacity: 0.75;">
             Urban. Industrial. Casual.<br /><br />
-            Located in TTDI Jaya, Shah Alam &mdash; Blank Note Coffee was established
+            Located in TTDI Jaya, Shah Alam - Blank Note Coffee was established
             in 2024 as a side project.<br /><br />
             We designed this cafe for both focus and connection. Our space is
             surprisingly quiet even though it's right next to the highway.
             Whether you're here to get some work done or catch up with friends,
             we provide the blank canvas you need to unwind.
           </p>
+        </div>
+
+        <div class="block">
+          <p class="block-label">Quick Actions</p>
+          <div class="action-grid">
+            <a href="#" class="action-btn">
+              <span class="action-label">Reserve a Table</span>
+              <span class="action-sub">Walk-ins welcome</span>
+            </a>
+            <a href="#" class="action-btn">
+              <span class="action-label">Order Delivery</span>
+              <span class="action-sub">GrabFood &amp; more</span>
+            </a>
+            <a href="#" class="action-btn">
+              <span class="action-label">Event Catering</span>
+              <span class="action-sub">Weddings &amp; more</span>
+            </a>
+          </div>
         </div>
 
         <div class="block">
@@ -453,11 +560,11 @@
           <p class="block-label">Hours</p>
           <div class="hours-row">
             <span>Sun, Mon, Wed, Thu</span>
-            <span>5 PM &ndash; 1 AM</span>
+            <span>5 PM - 1 AM</span>
           </div>
           <div class="hours-row">
-            <span>Fri &ndash; Sat</span>
-            <span>5 PM &ndash; 2 AM</span>
+            <span>Fri - Sat</span>
+            <span>5 PM - 2 AM</span>
           </div>
           <div class="hours-row closed">
             <span>Tuesday</span>
@@ -496,7 +603,7 @@
               <span class="accordion-toggle">&#9650;</span>
             </div>
             <div class="accordion-body open" id="best-seller">
-              <div class="menu-item"><div><span class="item-name">Blank Note Latte</span><span class="item-desc">(C) Cold only &mdash; iced 12oz</span></div><span class="item-price">RM13.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Blank Note Latte</span><span class="item-desc">(C) Cold only - iced 12oz</span></div><span class="item-price">RM13.90</span></div>
               <div class="menu-item"><div><span class="item-name">Cafe Latte</span></div><span class="item-price">RM10.90</span></div>
               <div class="menu-item"><div><span class="item-name">Spanish Latte</span></div><span class="item-price">RM11.90</span></div>
               <div class="menu-item"><div><span class="item-name">Caramel Macchiato</span></div><span class="item-price">RM13.90</span></div>
@@ -524,7 +631,7 @@
               <span class="accordion-toggle">&#9650;</span>
             </div>
             <div class="accordion-body" id="sweet-sip">
-              <div class="menu-item"><div><span class="item-name">Blank Note Latte</span><span class="item-desc">(C) Cold only &mdash; iced 12oz</span></div><span class="item-price">RM13.90</span></div>
+              <div class="menu-item"><div><span class="item-name">Blank Note Latte</span><span class="item-desc">(C) Cold only - iced 12oz</span></div><span class="item-price">RM13.90</span></div>
               <div class="menu-item"><div><span class="item-name">Caramel Macchiato</span></div><span class="item-price">RM13.90</span></div>
               <div class="menu-item"><div><span class="item-name">Caramel Latte</span></div><span class="item-price">RM12.90</span></div>
               <div class="menu-item"><div><span class="item-name">Hazelnut Latte</span></div><span class="item-price">RM12.90</span></div>
@@ -598,8 +705,8 @@
               </div>
               <div class="sub-section">
                 <p class="sub-label">Cup Size</p>
-                <div class="menu-item"><div><span class="item-name">(C) &mdash; Cold Only</span><span class="item-desc">Iced 12oz</span></div></div>
-                <div class="menu-item"><div><span class="item-name">(H) &mdash; Hot Only</span><span class="item-desc">Hot 9oz</span></div></div>
+                <div class="menu-item"><div><span class="item-name">(C) - Cold Only</span><span class="item-desc">Iced 12oz</span></div></div>
+                <div class="menu-item"><div><span class="item-name">(H) - Hot Only</span><span class="item-desc">Hot 9oz</span></div></div>
               </div>
             </div>
           </div>
@@ -666,10 +773,11 @@
             </div>
           </div>
 
-          <div class="block" style="opacity: 0.35;">
-            <p style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.15em;">
-              Food by HelloJohn &mdash; a collab kitchen
+          <div class="block">
+            <p style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.35;">
+              Food by Hello John - a collab kitchen
             </p>
+            <a href="hellojohn-main.html" class="collab-btn">Visit Hello John &rarr;</a>
           </div>
 
         </div><!-- end #food -->

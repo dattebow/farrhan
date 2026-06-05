@@ -1,0 +1,824 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Hello John - Good food, good company. TTDI Jaya, Shah Alam."
+    />
+    <title>Hello John</title>
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ── TOKENS ── */
+      :root {
+        --nero:       #120800;
+        --nero-2:     #191106;
+        --nero-3:     #201A0B;
+        --frangipani: #F6D7B0;
+        --frangipani-light: #FEE8CC;
+        --frangipani-dark:  #D8B287;
+        --frangipani-deep:  #BB8E60;
+        --bg-page:    #1a1208;
+        --bg-card:    #FEE8CC;
+        --text:       #120800;
+        --border:     #120800;
+        --thick:      6px solid var(--border);
+        --thin:       2px solid rgba(18, 8, 0, 0.25);
+        --hair:       1px solid rgba(18, 8, 0, 0.12);
+        --sans:       "Inter", sans-serif;
+      }
+
+      /* ── RESET ── */
+      *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html { -webkit-text-size-adjust: 100%; }
+
+      body {
+        background: var(--bg-page);
+        color: var(--text);
+        font-family: var(--sans);
+        font-weight: 400;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        gap: 1rem;
+      }
+
+      /* ── BACKGROUND ── */
+      #bg-image {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw; height: 100vh;
+        object-fit: cover;
+        z-index: -2;
+      }
+
+      #bg-dim {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw; height: 100vh;
+        background: rgba(18, 8, 0, 0.82);
+        z-index: -1;
+      }
+
+      /* ── CARD ── */
+      .card {
+        width: 100%;
+        max-width: 650px;
+        background: var(--bg-card);
+        border: 3px solid var(--border);
+      }
+
+      /* ── HEADER ── */
+      header {
+        padding: 1.75rem 1.25rem 1.25rem;
+        border-bottom: var(--thick);
+        background: var(--nero);
+      }
+
+      .header-brand {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+      }
+
+      .header-brand .brand {
+        text-align: right;
+      }
+
+      .logo-placeholder {
+        width: 42px;
+        height: 42px;
+        border: 2px dashed rgba(246, 215, 176, 0.4);
+        border-radius: 4px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.45rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: rgba(246, 215, 176, 0.4);
+        line-height: 1.3;
+        text-align: center;
+      }
+
+      .brand {
+        font-family: var(--sans);
+        font-size: clamp(2.2rem, 9vw, 3.2rem);
+        font-weight: 700;
+        line-height: 1;
+        color: var(--frangipani);
+        letter-spacing: -0.02em;
+      }
+
+      .brand em {
+        font-style: normal;
+        font-weight: 400;
+        color: var(--frangipani-dark);
+      }
+
+      .tagline {
+        margin-top: 0.6rem;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: rgba(246, 215, 176, 0.5);
+        font-weight: 400;
+        text-align: right;
+      }
+
+      .collab-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        margin-top: 1rem;
+        padding: 0.6rem 1rem;
+        background: var(--nero);
+        color: var(--frangipani);
+        font-family: var(--sans);
+        font-weight: 700;
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        text-decoration: none;
+        transition: opacity 0.15s;
+      }
+
+      .collab-btn:hover { opacity: 0.75; }
+
+      /* ── ACTION BUTTONS ── */
+      .action-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0.5rem;
+      }
+
+      .action-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.3rem;
+        padding: 0.85rem 0.5rem;
+        border: 2px solid rgba(18, 8, 0, 0.2);
+        text-decoration: none;
+        color: var(--nero);
+        text-align: center;
+        transition: background 0.15s, color 0.15s, border-color 0.15s;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .action-btn:hover {
+        background: var(--nero);
+        color: var(--frangipani);
+        border-color: var(--nero);
+      }
+
+      .action-btn .action-label {
+        font-size: 0.55rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      .action-btn .action-sub {
+        font-size: 0.5rem;
+        opacity: 0.45;
+        letter-spacing: 0.05em;
+      }
+
+      /* ── NAV TABS ── */
+      .tabs {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        border-bottom: var(--thick);
+      }
+
+      .tab {
+        padding: 0.85rem 0.5rem;
+        background: none;
+        border: none;
+        border-right: 2px solid rgba(18, 8, 0, 0.2);
+        font-family: var(--sans);
+        font-weight: 700;
+        font-size: 0.62rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        cursor: pointer;
+        text-align: center;
+        transition: background 0.15s ease;
+        -webkit-tap-highlight-color: transparent;
+        color: var(--nero);
+      }
+
+      .tab:last-child { border-right: none; }
+
+      .tab:hover { background: rgba(18, 8, 0, 0.06); }
+
+      .tab.active {
+        background: var(--nero);
+        color: var(--frangipani);
+      }
+
+      /* ── PANELS ── */
+      .panel { display: none; }
+      .panel.active { display: block; }
+
+      /* ── MENU SUB-NAV ── */
+      .menu-subnav {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-bottom: var(--thin);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: var(--bg-card);
+      }
+
+      .subnav-btn {
+        padding: 0.65rem 0.5rem;
+        background: none;
+        border: none;
+        border-right: var(--hair);
+        font-family: var(--sans);
+        font-weight: 700;
+        font-size: 0.58rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        cursor: pointer;
+        text-align: center;
+        transition: background 0.15s ease, opacity 0.15s ease;
+        -webkit-tap-highlight-color: transparent;
+        opacity: 0.35;
+        color: var(--nero);
+      }
+
+      .subnav-btn:last-child { border-right: none; }
+      .subnav-btn:hover { opacity: 0.65; }
+      .subnav-btn.active {
+        opacity: 1;
+        box-shadow: inset 0 -3px 0 var(--nero);
+      }
+
+      /* ── MENU COL ── */
+      .menu-col { display: none; }
+      .menu-col.active { display: block; }
+
+      /* ── SECTION BLOCK ── */
+      .block {
+        padding: 1.25rem 1.1rem;
+        border-bottom: var(--thin);
+      }
+
+      .block:last-child { border-bottom: none; }
+
+      .block-label {
+        font-size: 0.58rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        opacity: 0.35;
+        margin-bottom: 0.65rem;
+      }
+
+      /* ── ACCORDION ── */
+      .accordion-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        padding-bottom: 0.45rem;
+        border-bottom: var(--thick);
+        margin-bottom: 0.2rem;
+      }
+
+      .accordion-header .menu-cat-text {
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+      }
+
+      .accordion-toggle {
+        font-size: 0.55rem;
+        opacity: 0.3;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+        flex-shrink: 0;
+        margin-left: 0.5rem;
+      }
+
+      .accordion-header.open .accordion-toggle {
+        transform: rotate(180deg);
+        opacity: 0.6;
+      }
+
+      .accordion-body {
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s ease;
+      }
+
+      .accordion-body.open { max-height: 9999px; }
+
+      /* ── MENU ITEM ── */
+      .menu-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 1rem;
+        padding: 0.65rem 0;
+        border-bottom: var(--hair);
+      }
+
+      .menu-item:last-child { border-bottom: none; }
+
+      .item-name {
+        font-size: 0.95rem;
+        font-weight: 400;
+      }
+
+      .item-desc {
+        display: block;
+        font-size: 0.6rem;
+        opacity: 0.4;
+        margin-top: 0.08rem;
+        font-weight: 400;
+      }
+
+      .item-price {
+        font-size: 0.75rem;
+        font-weight: 700;
+        white-space: nowrap;
+        opacity: 0.55;
+        flex-shrink: 0;
+      }
+
+      /* ── BADGE ── */
+      .badge {
+        display: inline-block;
+        font-size: 0.45rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 0.15rem 0.4rem;
+        background: var(--nero);
+        color: var(--frangipani);
+        margin-left: 0.4rem;
+        vertical-align: middle;
+      }
+
+      /* ── HOURS ── */
+      .hours-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.65rem 0;
+        border-bottom: var(--hair);
+        font-size: 0.85rem;
+      }
+
+      .hours-row:last-child { border-bottom: none; }
+      .closed { color: #b52b2b; }
+
+      /* ── AMENITIES ── */
+      .amenities {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+      }
+
+      .amenity {
+        font-size: 0.62rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 0.65rem 0.75rem;
+        border: 2px solid rgba(18, 8, 0, 0.2);
+        text-align: center;
+        background: rgba(18, 8, 0, 0.04);
+      }
+
+      /* ── COLLAB STRIP ── */
+      .collab-strip {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.85rem 1.1rem;
+        background: var(--nero);
+        border-bottom: var(--thick);
+        font-size: 0.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: rgba(246, 215, 176, 0.6);
+      }
+
+      .collab-strip a {
+        color: var(--frangipani);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        transition: opacity 0.15s;
+      }
+
+      .collab-strip a:hover { opacity: 0.7; }
+
+      /* ── CONTACT LINK ── */
+      .contact-link {
+        display: block;
+        color: var(--text);
+        font-size: 0.85rem;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-link:last-child { margin-bottom: 0; }
+      .contact-link:hover { opacity: 0.6; }
+
+      /* ── FOOTER ── */
+      footer {
+        width: 100%;
+        max-width: 650px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+        padding: 0.25rem 0;
+      }
+
+      .footer-text {
+        font-size: 0.58rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: rgba(246, 215, 176, 0.4);
+      }
+
+      .footer-text a {
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        transition: opacity 0.15s;
+      }
+
+      .footer-text a:hover { opacity: 0.6; }
+    </style>
+  </head>
+
+  <body>
+    <img src="/assets/projects/brutalist.jpg" id="bg-image" alt="Background" />
+    <div id="bg-dim"></div>
+
+    <main class="card">
+
+      <!-- COLLAB STRIP -->
+      <div class="collab-strip">
+        Part of the same lot as &nbsp;<a href="blanknotecoffee-main.html">Blank Note Coffee &rarr;</a>
+      </div>
+
+      <header>
+        <div class="header-brand">
+          <div class="logo-placeholder">Logo<br>Here</div>
+          <h1 class="brand">Hello <em>John</em></h1>
+        </div>
+        <p class="tagline">Good food - good company.</p>
+      </header>
+
+      <!-- TAB NAV -->
+      <nav class="tabs" role="tablist">
+        <button class="tab active" role="tab" aria-selected="true"  data-target="info">Story &amp; Visit</button>
+        <button class="tab"        role="tab" aria-selected="false" data-target="menu">Menu</button>
+      </nav>
+
+      <!-- ══════════════════════════════════
+           INFO PANEL
+      ══════════════════════════════════ -->
+      <section class="panel active" id="info" role="tabpanel">
+
+        <div class="block">
+          <p class="block-label">About</p>
+          <p style="font-size: 0.9rem; line-height: 1.75; opacity: 0.75;">
+            Warm. Hearty. Unpretentious.<br /><br />
+            Hello John is the food side of our shared space in TTDI Jaya, Shah Alam.
+            While Blank Note Coffee takes care of your drinks, we take care of the rest -
+            from proper mains to late-night snacks.<br /><br />
+            Named after no one in particular, and everyone who's ever said
+            "what should we eat?" - Hello John is an answer to that.
+          </p>
+        </div>
+
+        <div class="block">
+          <p class="block-label">Quick Actions</p>
+          <div class="action-grid">
+            <a href="#" class="action-btn">
+              <span class="action-label">Reserve a Table</span>
+              <span class="action-sub">Walk-ins welcome</span>
+            </a>
+            <a href="#" class="action-btn">
+              <span class="action-label">Order Delivery</span>
+              <span class="action-sub">GrabFood &amp; more</span>
+            </a>
+            <a href="#" class="action-btn">
+              <span class="action-label">Event Catering</span>
+              <span class="action-sub">Weddings &amp; more</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="block">
+          <p class="block-label">What We Offer</p>
+          <div class="amenities">
+            <div class="amenity">Dine In</div>
+            <div class="amenity">Takeaway</div>
+            <div class="amenity">Halal Kitchen</div>
+            <div class="amenity">Surau Available</div>
+          </div>
+        </div>
+
+        <div class="block">
+          <p class="block-label">Location</p>
+          <p style="font-size: 0.9rem; line-height: 1.75; opacity: 0.75;">
+            TTDI Jaya, Shah Alam<br />
+            Selangor, Malaysia<br /><br />
+            Sharing a lot with Blank Note Coffee
+          </p>
+          <br />
+          <a href="https://maps.app.goo.gl/eUhmSarEmPERkKWx6" class="contact-link">
+            Open in Google Maps
+          </a>
+        </div>
+
+        <div class="block">
+          <p class="block-label">Hours</p>
+          <div class="hours-row">
+            <span>Sun, Mon, Wed, Thu</span>
+            <span>5 PM - 1 AM</span>
+          </div>
+          <div class="hours-row">
+            <span>Fri - Sat</span>
+            <span>5 PM - 2 AM</span>
+          </div>
+          <div class="hours-row closed">
+            <span>Tuesday</span>
+            <span>Closed</span>
+          </div>
+        </div>
+
+        <div class="block">
+          <p class="block-label">Contact</p>
+          <a class="contact-link" href="https://www.instagram.com/hellojohn/">
+            @hellojohn on Instagram
+          </a>
+        </div>
+
+      </section>
+
+      <!-- ══════════════════════════════════
+           MENU PANEL
+      ══════════════════════════════════ -->
+      <section class="panel" id="menu" role="tabpanel">
+
+        <!-- Mains / Snacks / Drinks sub-nav -->
+        <div class="menu-subnav">
+          <button class="subnav-btn active" data-col="mains">Mains</button>
+          <button class="subnav-btn"        data-col="snacks">Snacks</button>
+          <button class="subnav-btn"        data-col="drinks">Drinks</button>
+        </div>
+
+        <!-- ── MAINS ── -->
+        <div class="menu-col active" id="mains">
+
+          <div class="block">
+            <div class="accordion-header open" data-acc="signature">
+              <span class="menu-cat-text">John's Signature<span class="badge">Chef's Pick</span></span>
+              <span class="accordion-toggle">&#9650;</span>
+            </div>
+            <div class="accordion-body open" id="signature">
+              <div class="menu-item">
+                <div>
+                  <span class="item-name">Signature Chunky Beef</span>
+                  <span class="item-desc">Slow-braised beef, house gravy, served with rice</span>
+                </div>
+                <span class="item-price">RM16.90</span>
+              </div>
+              <div class="menu-item">
+                <div>
+                  <span class="item-name">Ocean Tuna</span>
+                  <span class="item-desc">Pan-seared tuna, citrus drizzle, fresh greens</span>
+                </div>
+                <span class="item-price">RM15.90</span>
+              </div>
+              <div class="menu-item">
+                <div>
+                  <span class="item-name">Chicken Crispy</span>
+                  <span class="item-desc">Golden fried chicken, chili dip, steamed rice</span>
+                </div>
+                <span class="item-price">RM14.90</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="accordion-header open" data-acc="pasta">
+              <span class="menu-cat-text">Pasta</span>
+              <span class="accordion-toggle">&#9650;</span>
+            </div>
+            <div class="accordion-body open" id="pasta">
+              <div class="menu-item">
+                <div>
+                  <span class="item-name">Crispy Cream</span>
+                  <span class="item-desc">Crispy chicken, cream sauce, fettuccine</span>
+                </div>
+                <span class="item-price">RM13</span>
+              </div>
+              <div class="menu-item">
+                <div>
+                  <span class="item-name">Beef N Cream</span>
+                  <span class="item-desc">Minced beef, cream sauce, penne</span>
+                </div>
+                <span class="item-price">RM13.50</span>
+              </div>
+              <div class="menu-item">
+                <div>
+                  <span class="item-name">Mac N Beef</span>
+                  <span class="item-desc">Mac &amp; cheese, chunky beef topping</span>
+                </div>
+                <span class="item-price">RM16.90</span>
+              </div>
+              <div class="menu-item">
+                <div>
+                  <span class="item-name">Fresh Bowl w/ Chic Crispy</span>
+                  <span class="item-desc">Salad bowl, crispy chicken, house dressing</span>
+                </div>
+                <span class="item-price">RM13.90</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="accordion-header" data-acc="desserts">
+              <span class="menu-cat-text">Desserts</span>
+              <span class="accordion-toggle">&#9650;</span>
+            </div>
+            <div class="accordion-body" id="desserts">
+              <div class="menu-item">
+                <div><span class="item-name">Croissant</span></div>
+                <span class="item-price">RM12.90</span>
+              </div>
+              <div class="menu-item">
+                <div><span class="item-name">Cake</span><span class="item-desc">Ask our staff for today's slice</span></div>
+                <span class="item-price">RM15.90</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- end #mains -->
+
+        <!-- ── SNACKS ── -->
+        <div class="menu-col" id="snacks">
+
+          <div class="block">
+            <div class="accordion-header open" data-acc="fries">
+              <span class="menu-cat-text">Fries &amp; Sides</span>
+              <span class="accordion-toggle">&#9650;</span>
+            </div>
+            <div class="accordion-body open" id="fries">
+              <div class="menu-item">
+                <div><span class="item-name">Tangy Heat Fries</span></div>
+                <span class="item-price">RM9.90</span>
+              </div>
+              <div class="menu-item">
+                <div><span class="item-name">Curly Fries</span></div>
+                <span class="item-price">RM13.90</span>
+              </div>
+              <div class="menu-item">
+                <div><span class="item-name">Cheesy Crispy Chic Fries</span></div>
+                <span class="item-price">RM14</span>
+              </div>
+              <div class="menu-item">
+                <div><span class="item-name">Onion Ring</span></div>
+                <span class="item-price">RM14.90</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="accordion-header open" data-acc="bites">
+              <span class="menu-cat-text">Bites</span>
+              <span class="accordion-toggle">&#9650;</span>
+            </div>
+            <div class="accordion-body open" id="bites">
+              <div class="menu-item">
+                <div>
+                  <span class="item-name">Sausage Thai Set</span>
+                  <span class="item-desc">3pcs / 7pcs / 15pcs</span>
+                </div>
+                <span class="item-price">RM12 / RM24 / RM45</span>
+              </div>
+              <div class="menu-item">
+                <div>
+                  <span class="item-name">Lokching Ikan</span>
+                  <span class="item-desc">10pcs / 22pcs / 36pcs</span>
+                </div>
+                <span class="item-price">RM12 / RM20 / RM30</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- end #snacks -->
+
+        <!-- ── DRINKS ── -->
+        <div class="menu-col" id="drinks">
+
+          <div class="block">
+            <div class="accordion-header open" data-acc="cold">
+              <span class="menu-cat-text">Cold Drinks</span>
+              <span class="accordion-toggle">&#9650;</span>
+            </div>
+            <div class="accordion-body open" id="cold">
+              <div class="menu-item">
+                <div><span class="item-name">Blue Lagoon</span></div>
+                <span class="item-price">RM9.90</span>
+              </div>
+              <div class="menu-item">
+                <div><span class="item-name">Orange Burst</span></div>
+                <span class="item-price">RM9.90</span>
+              </div>
+              <div class="menu-item">
+                <div><span class="item-name">Berry Pop</span></div>
+                <span class="item-price">RM9.90</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="block">
+            <p style="font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.45;">
+              For coffee &amp; specialty drinks - right next door.
+            </p>
+            <a href="blanknotecoffee-main.html" class="collab-btn">Visit Blank Note Coffee &rarr;</a>
+          </div>
+
+        </div><!-- end #drinks -->
+
+      </section>
+    </main>
+
+    <footer>
+      <span class="footer-text">Hello John &middot; Est. 2024</span>
+      <span class="footer-text">Hosted by <a href="https://farrhan.com" target="_blank">farrhan.com</a></span>
+      <span class="footer-text">Created by <a href="https://farrhan.com" target="_blank">Farrhan</a></span>
+    </footer>
+
+    <script>
+      // ── Main tabs
+      document.querySelectorAll(".tab").forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const target = tab.dataset.target;
+          document.querySelectorAll(".tab").forEach((t) => {
+            t.classList.remove("active");
+            t.setAttribute("aria-selected", "false");
+          });
+          document.querySelectorAll(".panel").forEach((p) => p.classList.remove("active"));
+          tab.classList.add("active");
+          tab.setAttribute("aria-selected", "true");
+          document.getElementById(target).classList.add("active");
+        });
+      });
+
+      // ── Menu sub-nav
+      document.querySelectorAll(".subnav-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".subnav-btn").forEach((b) => b.classList.remove("active"));
+          document.querySelectorAll(".menu-col").forEach((c) => c.classList.remove("active"));
+          btn.classList.add("active");
+          document.getElementById(btn.dataset.col).classList.add("active");
+        });
+      });
+
+      // ── Accordions
+      document.querySelectorAll(".accordion-header").forEach((header) => {
+        header.addEventListener("click", () => {
+          const body   = document.getElementById(header.dataset.acc);
+          const isOpen = body.classList.contains("open");
+          body.classList.toggle("open", !isOpen);
+          header.classList.toggle("open", !isOpen);
+        });
+      });
+    </script>
+  </body>
+</html>
