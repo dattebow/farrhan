@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0B1215">
+  <meta property="og:title" content="farrhan. — Obsidian Vault">
+  <meta property="og:description" content="A private Obsidian vault I've been building since 2022.">
+  <meta property="og:image" content="https://farrhan.com/assets/og-image.png">
+  <meta property="og:url" content="https://farrhan.com/pages/obsidian-vault.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="farrhan. — Obsidian Vault">
+  <meta name="twitter:description" content="A private Obsidian vault I've been building since 2022.">
+  <meta name="twitter:image" content="https://farrhan.com/assets/og-image.png">
+  <title>farrhan. (Obsidian Vault Project)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+</head>
+<body>
+
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="/assets/bg-loop.mp4" type="video/mp4">
+  </video>
+
+  <main class="card card--wide">
+
+    <div class="folio-bar">
+      <a href="/pages/works.html" class="back-link">← Projects</a>
+      <span id="folio-date"></span>
+    </div>
+
+    <div class="split-layout split-layout--project">
+
+      <div class="split-left">
+
+        <div class="project-header">
+          <h1 class="project-title">Obsidian Vault</h1>
+          <span class="project-link">Personal Knowledge Base — private</span>
+        </div>
+
+        <div class="text">
+          <p>
+            My Obsidian vault is the closest thing I have to a second brain. Notes on everything — games, music, tech, studying, freelance work. A finance log. A project tracker. A library of every book and film I've gone through. It's fully private, but it's probably the most thought-through thing I've built.
+          </p>
+          <p>
+            Started in 2022, after moving away from Notion. I wanted something local — files I actually own, that aren't sitting on someone else's server.
+          </p>
+        </div>
+
+        <div class="project-faq">
+          <h2 class="project-faq-title">FAQ</h2>
+
+          <div class="faq-item">
+            <p class="faq-q">What's the structure?</p>
+            <p class="faq-a">Everything lives under <code>_OBSIDIAN/databases/</code> — split into dedicated folders: <code>notes/</code>, <code>projects/</code>, <code>tasks/</code>, <code>finances/</code>, <code>journals/</code>, <code>academics/</code>, and <code>library/</code>. Each database has its own schema and Dataview queries. Yearly subfolders keep things from piling up.</p>
+          </div>
+
+          <div class="faq-item">
+            <p class="faq-q">Why Obsidian?</p>
+            <p class="faq-a">Local-first, plain markdown files, no subscription. I came from Notion and didn't like the idea of my journals sitting on someone else's servers. Everything here is mine.</p>
+          </div>
+
+          <div class="faq-item">
+            <p class="faq-q">Can I see it?</p>
+            <p class="faq-a">No. It's fully private and I'd like to keep it that way.</p>
+          </div>
+
+          <div class="faq-item">
+            <p class="faq-q">Why put it on your portfolio then?</p>
+            <p class="faq-a">Because I built it, and I've put real time into it. A portfolio doesn't have to be things other people can use.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="split-right">
+        <div class="split-photo">
+          <img src="/assets/portfolio/obsidian-screenshot.PNG" alt="Obsidian Vault">
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <style>
+    .vault-tree {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.45);
+      background: transparent;
+      border: none;
+      margin: 0;
+      padding: 0;
+      white-space: pre;
+    }
+  </style>
+
+  <script src="/assets/date-display.js"></script>
+
+</body>
+</html>
