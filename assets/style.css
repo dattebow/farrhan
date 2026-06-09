@@ -597,6 +597,33 @@ mark {
   flex-shrink: 0;
 }
 
+/* ── SECTION TITLE BLOCK (title + sub-link grouped above the rule) ── */
+.section-title-block {
+  border-bottom: var(--rule-thick);
+}
+
+.section-title-block .section-title {
+  border-bottom: none;
+}
+
+.section-sub-link {
+  padding: 0 1.25rem 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text);
+  opacity: 0.7;
+  text-align: left;
+}
+
+.section-sub-link a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* ── HOME NAV STRETCH ── */
 .split-layout .split-left nav {
   display: flex;
