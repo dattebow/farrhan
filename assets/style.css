@@ -598,6 +598,10 @@ mark {
 }
 
 /* ── SERVICE PAGE SPLIT ── */
+.split-layout--service {
+  grid-template-columns: 1fr 1fr;
+}
+
 .split-layout--service .split-left,
 .split-layout--service .split-right {
   overflow-y: auto;
