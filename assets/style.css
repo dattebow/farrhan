@@ -597,6 +597,17 @@ mark {
   flex-shrink: 0;
 }
 
+/* ── HOME NAV STRETCH ── */
+.split-layout .split-left nav {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.split-layout .split-left nav .btn {
+  flex: 1;
+}
+
 /* ── SERVICE PAGE SPLIT ── */
 .split-layout--service {
   grid-template-columns: 1fr 1fr;
