@@ -719,7 +719,7 @@ a.project-link:hover {
   padding: 16px;
 }
 
-.split-layout--about .project-header { padding: 8px 0 12px; }
+.split-layout--about .project-header { padding: 0 0 12px; }
 .split-layout--about .text { padding: 8px 0 0; }
 .split-layout--about .faq-body { padding: 8px 0 0; }
 
