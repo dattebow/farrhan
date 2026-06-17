@@ -557,6 +557,31 @@ code {
   overflow-y: auto;
 }
 
+/* ── PROJECT PAGES — wide card, image fills column height ── */
+body.page-project {
+  padding: 24px;
+}
+
+body.page-project .card {
+  max-width: 100%;
+}
+
+.split-layout--project {
+  align-items: stretch;
+  min-height: calc(100vh - 48px);
+}
+
+.split-layout--project .split-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.split-layout--project .split-photo {
+  flex: 1;
+  margin: var(--pad-x);
+  margin-left: 0;
+}
+
 .project-header {
   padding: 28px var(--pad-x) 12px;
 }
@@ -670,6 +695,10 @@ a.project-link:hover {
   padding: 16px;
 }
 
+.split-layout--service .section-title {
+  padding: 0 0 12px;
+}
+
 .split-layout--service .section-subtitle { padding: 0 0 8px; }
 .split-layout--service .rates-grid,
 .split-layout--service .addons-list { padding: 8px 0 0; }
@@ -708,6 +737,26 @@ a.project-link:hover {
   color: var(--milk);
   border-radius: var(--radius);
   overflow: hidden;
+  background: var(--brand);
+}
+
+.selected-works {
+  background: var(--brand-2);
+  border-radius: var(--radius);
+  margin: 0 var(--pad-x) var(--pad-x);
+  padding: 16px;
+}
+
+.selected-works .section-title {
+  padding: 0 0 12px;
+}
+
+.selected-works .portfolio-grid {
+  padding: 0;
+}
+
+.selected-works .card-footer {
+  padding: 16px 0 0;
 }
 
 .portfolio-thumb {
