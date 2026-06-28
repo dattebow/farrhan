@@ -44,7 +44,7 @@
       body {
         background: var(--bg-page);
         color: var(--text);
-        font-family: var(--mono);
+        font-family: var(--serif);
         min-height: 100svh;
         display: flex;
         flex-direction: column;
@@ -207,10 +207,9 @@
         background: none;
         border: none;
         border-right: var(--thin);
-        font-family: var(--mono);
-        font-size: 0.65rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
+        font-family: var(--serif);
+        font-size: 0.8rem;
+        letter-spacing: 0.02em;
         cursor: pointer;
         text-align: center;
         transition: background 0.15s ease;
@@ -255,10 +254,9 @@
         background: none;
         border: none;
         border-right: var(--hair);
-        font-family: var(--mono);
-        font-size: 0.6rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
+        font-family: var(--serif);
+        font-size: 0.8rem;
+        letter-spacing: 0.02em;
         cursor: pointer;
         text-align: center;
         transition: background 0.15s ease, opacity 0.15s ease;
@@ -290,8 +288,8 @@
 
       /* ── SECTION BLOCK ── */
       .block {
-        padding: 1.25rem 1rem;
-        border-bottom: var(--thin);
+        padding: 1rem 1rem;
+        border-bottom: var(--hair);
       }
 
       .block:last-child {
@@ -315,14 +313,14 @@
         user-select: none;
         -webkit-tap-highlight-color: transparent;
         padding-bottom: 0.4rem;
-        border-bottom: var(--thick);
         margin-bottom: 0.2rem;
       }
 
       .accordion-header .menu-cat-text {
-        font-size: 0.65rem;
+        font-size: 0.7rem;
         text-transform: uppercase;
-        letter-spacing: 0.15em;
+        letter-spacing: 0.18em;
+        opacity: 0.85;
       }
 
       .accordion-toggle {
@@ -354,12 +352,7 @@
         justify-content: space-between;
         align-items: baseline;
         gap: 1rem;
-        padding: 0.6rem 0;
-        border-bottom: var(--hair);
-      }
-
-      .menu-item:last-child {
-        border-bottom: none;
+        padding: 0.45rem 0;
       }
 
       .item-name {
@@ -386,7 +379,6 @@
       .sub-section {
         margin-top: 1rem;
         padding-top: 0.75rem;
-        border-top: var(--thin);
       }
 
       .sub-label {
@@ -418,16 +410,14 @@
       .amenities {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 0.5rem;
+        gap: 0.15rem 1.5rem;
       }
 
       .amenity {
-        font-size: 0.65rem;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        padding: 0.6rem 0.75rem;
-        border: var(--thin);
-        text-align: center;
+        font-family: var(--serif);
+        font-size: 0.95rem;
+        padding: 0.25rem 0;
+        border-bottom: var(--hair);
       }
 
       /* ── CONTACT LINK ── */
@@ -486,7 +476,7 @@
     <main class="card">
       <header>
         <div class="header-brand">
-          <img src="/assets/portfolio/blanknotecoffee-logo.jpg" alt="Blank Note Coffee logo" style="width:40px;height:40px;object-fit:contain;flex-shrink:0;">
+          <img src="/assets/portfolio/blanknotecoffee-logo.jpg" alt="Blank Note Coffee logo" style="width:72px;height:72px;object-fit:contain;flex-shrink:0;">
           <h1 class="brand">Blank <em>Note</em> Coffee</h1>
         </div>
         <p class="tagline">Not just coffee - it's a daily note.</p>
@@ -514,6 +504,33 @@
             Whether you're here to get some work done or catch up with friends,
             we provide the blank canvas you need to unwind.
           </p>
+          <p style="margin-top:1rem; font-size:0.9rem; opacity:0.5; line-height:1.9;">
+            Slow Bar Coffee &nbsp;&middot;&nbsp; Warm Kitchen &nbsp;&middot;&nbsp; Board Games &nbsp;&middot;&nbsp; Surau Available
+          </p>
+        </div>
+
+        <div class="block">
+          <p class="block-label">Location &amp; Hours</p>
+          <p style="font-size: 0.9rem; line-height: 1.7; opacity: 0.75;">
+            TTDI Jaya, Shah Alam, Selangor, Malaysia
+          </p>
+          <a href="https://maps.app.goo.gl/eUhmSarEmPERkKWx6" class="contact-link" style="margin-top:0.4rem;">
+            Open in Google Maps
+          </a>
+          <div style="margin-top:1rem;">
+            <div class="hours-row">
+              <span>Sun, Mon, Wed, Thu</span>
+              <span>5 PM - 1 AM</span>
+            </div>
+            <div class="hours-row">
+              <span>Fri - Sat</span>
+              <span>5 PM - 2 AM</span>
+            </div>
+            <div class="hours-row closed">
+              <span>Tuesday</span>
+              <span>Closed</span>
+            </div>
+          </div>
         </div>
 
         <div class="block">
@@ -531,44 +548,6 @@
               <span class="action-label">Event Catering</span>
               <span class="action-sub">Weddings &amp; more</span>
             </a>
-          </div>
-        </div>
-
-        <div class="block">
-          <p class="block-label">What We Offer</p>
-          <div class="amenities">
-            <div class="amenity">Slow Bar Coffee</div>
-            <div class="amenity">Warm Kitchen</div>
-            <div class="amenity">Board Games</div>
-            <div class="amenity">Surau Available</div>
-          </div>
-        </div>
-
-        <div class="block">
-          <p class="block-label">Location</p>
-          <p style="font-size: 0.9rem; line-height: 1.7; opacity: 0.75;">
-            TTDI Jaya, Shah Alam<br />
-            Selangor, Malaysia
-          </p>
-          <br />
-          <a href="https://maps.app.goo.gl/eUhmSarEmPERkKWx6" class="contact-link">
-            Open in Google Maps
-          </a>
-        </div>
-
-        <div class="block">
-          <p class="block-label">Hours</p>
-          <div class="hours-row">
-            <span>Sun, Mon, Wed, Thu</span>
-            <span>5 PM - 1 AM</span>
-          </div>
-          <div class="hours-row">
-            <span>Fri - Sat</span>
-            <span>5 PM - 2 AM</span>
-          </div>
-          <div class="hours-row closed">
-            <span>Tuesday</span>
-            <span>Closed</span>
           </div>
         </div>
 
@@ -702,11 +681,6 @@
                 <p class="sub-label">Milk Choices (Latte / Non-Coffee)</p>
                 <div class="menu-item"><div><span class="item-name">Fresh Milk</span></div><span class="item-price">+RM1</span></div>
                 <div class="menu-item"><div><span class="item-name">Oatside Milk</span></div><span class="item-price">+RM3</span></div>
-              </div>
-              <div class="sub-section">
-                <p class="sub-label">Cup Size</p>
-                <div class="menu-item"><div><span class="item-name">(C) - Cold Only</span><span class="item-desc">Iced 12oz</span></div></div>
-                <div class="menu-item"><div><span class="item-name">(H) - Hot Only</span><span class="item-desc">Hot 9oz</span></div></div>
               </div>
             </div>
           </div>
