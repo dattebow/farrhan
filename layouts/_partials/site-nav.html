@@ -1,0 +1,7 @@
+<h1 class="site-title"><a href="/">farrhan.</a></h1>
+<nav class="site-nav">
+  <a href="/"{{ if $.IsHome }} class="active"{{ end }}>Home</a>
+  <a href="/pages/about.html"{{ if eq $.RelPermalink "/pages/about.html" }} class="active"{{ end }}>About</a>
+  <a href="/pages/services.html"{{ if or (eq $.RelPermalink "/pages/services.html") (eq $.RelPermalink "/pages/video-editing.html") (eq $.RelPermalink "/pages/graphic-design.html") (eq $.RelPermalink "/pages/vod-scrubbing.html") }} class="active"{{ end }}>Services</a>
+  <a href="/pages/portfolio.html"{{ if or (eq $.RelPermalink "/pages/portfolio.html") (eq $.Type "portfolio") }} class="active"{{ end }}>Portfolio</a>
+</nav>

@@ -1,0 +1,19 @@
+{{ define "main" -}}
+<h1 class="page-title">{{ .Title }}</h1>
+
+<div class="text">
+  {{ .Content }}
+</div>
+
+{{ with .Params.faq }}
+<h2 class="page-title" style="margin-top:40px;">FAQ</h2>
+<div class="faq-list">
+  {{ range . }}
+  <div class="faq-item">
+    <p class="faq-q">{{ .q }}</p>
+    <p class="faq-a">{{ .a | safeHTML }}</p>
+  </div>
+  {{ end }}
+</div>
+{{ end }}
+{{ end -}}

@@ -1,0 +1,92 @@
+{{ define "main" -}}
+<h1 class="page-title">{{ .Title }}</h1>
+
+<div class="jump-nav">
+  <a href="#projects">Projects <span>↓</span></a>
+  <a href="#cv">CV <span>↓</span></a>
+</div>
+
+<div id="projects"></div>
+{{ $portfolio := where site.RegularPages "Type" "portfolio" }}
+{{ range .Params.groups }}
+{{ $group := . }}
+{{ $items := where $portfolio "Params.category" $group }}
+{{ if $items }}
+<h2 class="link-group-title" style="margin-top:32px;">{{ $group }}</h2>
+<div class="portfolio-bar-list">
+  {{ range $items.ByDate.Reverse }}
+  {{ $item := . }}
+  <a href="{{ $item.RelPermalink }}" class="portfolio-bar">
+    {{ with $item.Params.image }}
+    <div class="portfolio-bar-thumb">
+      <img loading="lazy" decoding="async" src="{{ . }}" alt="{{ $item.Title }}">
+    </div>
+    {{ end }}
+    <div class="portfolio-bar-info">
+      <span class="portfolio-bar-title">{{ $item.Title }}</span>
+      <span class="portfolio-bar-desc">{{ $item.Params.description }}</span>
+    </div>
+    <span class="portfolio-bar-date">{{ $item.Params.date_display | default ($item.Date.Format "2006-01-02") }}</span>
+  </a>
+  {{ end }}
+</div>
+{{ end }}
+{{ end }}
+
+<hr class="section-divider" id="cv" style="margin-top:40px;">
+{{ with .Params.skills }}
+<h2 class="link-group-title" style="margin-top:32px;">Skills</h2>
+<div class="skills-list">
+  {{ range . }}
+  <div class="skills-item">
+    <span class="skills-category">{{ .category }}</span>
+    <span class="skills-items">{{ .items }}</span>
+  </div>
+  {{ end }}
+</div>
+{{ end }}
+
+{{ with .Params.experience }}
+<hr class="section-divider">
+
+<h2 class="link-group-title">Experience</h2>
+<div class="resume-list">
+  {{ range . }}
+  <div class="resume-item">
+    <div class="resume-item-header">
+      <span class="resume-item-role">{{ .role }}{{ with .org }} · {{ . }}{{ end }}</span>
+      {{ with .dates }}<span class="resume-item-dates">{{ . }}</span>{{ end }}
+    </div>
+    {{ with .note }}<p class="resume-item-note">{{ . }}</p>{{ end }}
+    {{ with .bullets }}
+    <ul class="resume-item-bullets">
+      {{ range . }}<li>{{ . }}</li>{{ end }}
+    </ul>
+    {{ end }}
+  </div>
+  {{ end }}
+</div>
+{{ end }}
+
+{{ with .Params.education }}
+<hr class="section-divider">
+
+<h2 class="link-group-title">Education</h2>
+<div class="resume-list">
+  {{ range . }}
+  <div class="resume-item">
+    <div class="resume-item-header">
+      <span class="resume-item-role">{{ .degree }}{{ with .school }} · {{ . }}{{ end }}</span>
+      {{ with .dates }}<span class="resume-item-dates">{{ . }}</span>{{ end }}
+    </div>
+    {{ with .note }}<p class="resume-item-note">{{ . }}</p>{{ end }}
+    {{ with .bullets }}
+    <ul class="resume-item-bullets">
+      {{ range . }}<li>{{ . }}</li>{{ end }}
+    </ul>
+    {{ end }}
+  </div>
+  {{ end }}
+</div>
+{{ end }}
+{{ end -}}

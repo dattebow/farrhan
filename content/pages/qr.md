@@ -1,0 +1,4 @@
+---
+title: "QR"
+layout: "qr"
+---

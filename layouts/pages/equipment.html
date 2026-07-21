@@ -1,0 +1,18 @@
+{{ define "main" -}}
+<h1 class="page-title">{{ .Title }}</h1>
+
+<div class="jump-nav">
+  {{ range .Params.categories }}
+  <a href="#{{ .id }}">{{ .label }} ↓</a>
+  {{ end }}
+</div>
+
+{{ range .Params.categories }}
+<h2 class="link-group-title" id="{{ .id }}">{{ .label }}</h2>
+<div class="equipment-grid">
+  {{ range .items }}
+  <div class="equipment-item"><img loading="lazy" decoding="async" src="{{ .img }}" alt="{{ .alt }}"><p>{{ .label }}</p></div>
+  {{ end }}
+</div>
+{{ end }}
+{{ end -}}

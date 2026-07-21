@@ -1,0 +1,18 @@
+baseURL: "https://farrhan.com/"
+title: "farrhan."
+locale: "en"
+uglyURLs: true
+disableKinds:
+  - "RSS"
+  - "taxonomy"
+  - "term"
+  - "section"
+
+params:
+  description: "Video editor since 2014. Bassist · Headphone collector · JRPG enjoyer."
+  ogImage: "/assets/og-image.png"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

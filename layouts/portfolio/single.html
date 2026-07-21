@@ -1,0 +1,31 @@
+{{ define "main" -}}
+<h1 class="page-title">{{ .Title }}</h1>
+<div class="entry-date" style="margin-bottom:16px;">{{ .Params.date_display | default (.Date.Format "2006-01-02") }}</div>
+
+{{ if .Params.link_url -}}
+<a class="project-link" href="{{ .Params.link_url }}" target="_blank" rel="noopener noreferrer">{{ .Params.link_label }} ↗</a>
+{{ else if .Params.link_label -}}
+<div class="project-link">{{ .Params.link_label }}</div>
+{{ end }}
+
+{{ with .Params.image }}
+<div class="project-image">
+  <img src="{{ . }}" alt="{{ $.Params.image_alt | default $.Title }}">
+</div>
+{{ end }}
+
+<div class="text">
+  {{ .Content }}
+</div>
+
+{{ with .Params.faq }}
+<div class="faq-list">
+  {{ range . }}
+  <div class="faq-item">
+    <p class="faq-q">{{ .q }}</p>
+    <p class="faq-a">{{ .a | safeHTML }}</p>
+  </div>
+  {{ end }}
+</div>
+{{ end }}
+{{ end -}}

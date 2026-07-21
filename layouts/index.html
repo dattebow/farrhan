@@ -1,0 +1,41 @@
+{{ define "main" -}}
+<div class="text">
+  {{ .Content }}
+</div>
+
+{{ with .Params.links }}
+<h2 class="link-group-title" style="margin-top:24px;">Links &amp; contact</h2>
+<div class="link-list">
+  {{ range . }}
+  <a href="{{ .url }}"{{ if .external }} target="_blank" rel="noopener noreferrer"{{ end }}>
+    <span>{{ .label }}</span>
+    <span>{{ if .external }}↗{{ else }}→{{ end }}</span>
+  </a>
+  {{ end }}
+</div>
+{{ end }}
+
+<hr class="section-divider">
+
+<h2 class="link-group-title">Recent projects</h2>
+{{ $recent := where (where site.RegularPages "Type" "portfolio") "Params.date_display" nil }}
+<div class="portfolio-bar-list">
+  {{ range first 3 $recent.ByDate.Reverse }}
+  {{ $item := . }}
+  <a href="{{ $item.RelPermalink }}" class="portfolio-bar">
+    {{ with $item.Params.image }}
+    <div class="portfolio-bar-thumb">
+      <img loading="lazy" decoding="async" src="{{ . }}" alt="{{ $item.Title }}">
+    </div>
+    {{ end }}
+    <div class="portfolio-bar-info">
+      <span class="portfolio-bar-title">{{ $item.Title }}</span>
+      <span class="portfolio-bar-desc">{{ $item.Params.description }}</span>
+    </div>
+    <span class="portfolio-bar-date">{{ $item.Date.Format "2006-01-02" }}</span>
+  </a>
+  {{ end }}
+</div>
+
+<p class="page-description" style="border-bottom:none;margin-top:16px;"><a href="/pages/portfolio.html">Click here to view my portfolio →</a></p>
+{{ end -}}

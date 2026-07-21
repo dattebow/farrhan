@@ -1,42 +1,68 @@
 # farrhan.com
 
-Personal portfolio site. Built from scratch - no frameworks, no site builders, just HTML and CSS.
+Personal portfolio site. Built with [Hugo](https://gohugo.io) — no theme, custom templates
+written from scratch to match the brand (Dark Blue `#212842` / Milky White `#F3F3F3`, Spectral +
+Satoshi). What ships to the browser is plain HTML and CSS; Hugo is just the build step that
+generates it from the files below.
 
-Hosted on GitHub Pages under a custom domain because having a permanent address on the internet
-is useful and I wanted one. Also because pointing clients to a proper domain is a lot cleaner
-than sending them a Google Drive folder.
+Hosted on GitHub Pages under a custom domain.
 
-## What's on it
+## Folder structure
 
-- About me
-- Links to where I exist online
-- Works & Services - rates for video editing and graphic design, plus project write-ups
-- Equipment - a list of gear I actually use
+```
+content/            → the actual text/data for every page (markdown + front matter)
+  _index.md            the homepage
+  pages/                every non-portfolio page (about, links, services, equipment, etc.)
+  portfolio/            one file per portfolio project — this is the part you'll touch most
 
-## What it's actually for
+layouts/            → the HTML templates that turn content into pages (Go templates)
+  baseof.html           the shared shell: sidebar nav + content column
+  _partials/            reusable snippets (site-nav, head/meta tags)
+  pages/                one template per page "type" (nav-list, nav-groups, about, equipment,
+                         service-detail, qr) — selected via each page's `layout:` front matter
+  portfolio/single.html the template every file in content/portfolio/ renders through
 
-Two things. One, a place to send clients. I do freelance video editing and graphic design, and
-having a dedicated page with rates, terms, and past work is a better pitch than explaining
-everything from scratch over DM every single time.
+static/             → files copied as-is, unprocessed
+  assets/               style.css, images, the background video, favicon
+  client-work/          Blank Note Coffee and Hello John — off-limits client deliverables,
+                         never touch these, they're not part of the farrhan.com design
 
-Two, a hub for everything else. My YouTube channel, socials, projects - it all lives here.
-It also doubles as a landing page for my self-hosted services, which live under the same domain.
+hugo.yaml           → site config (title, base URL, global params)
+```
 
-## Stack
+## Adding a new portfolio project
 
-Plain HTML + CSS. That's it. No build step, no dependencies, no `node_modules` folder taking
-up 400MB.
+Add a file to `content/portfolio/`, e.g. `content/portfolio/my-new-project.md`:
 
-One shared `style.css` handles the whole site. The layout is built around a card system with a
-split-layout for pages that need two columns. Most of the motion is CSS - staggered fade-ins on
-the homepage via `animation-delay`, nothing that requires JavaScript to pull off. The only JS
-on the site is for displaying a live date in the header and triggering the reveal animations.
+```yaml
+---
+title: "Project Name"
+description: "One-line description for the homepage list and link previews."
+link_label: "External link text"
+link_url: "https://example.com"
+image: "/assets/portfolio/my-screenshot.png"
+faq:
+  - q: "A question"
+    a: "The answer."
+---
 
-## Why hand-built
+The write-up paragraph(s) go here, as regular markdown.
+```
 
-Using a site builder felt like cheating. If something breaks, I want to know exactly why and
-where. Building it by hand means I know what every line does - and it loads fast, which is a
-nice side effect of not shipping a React app to display five nav links and a photo.
+Drop the screenshot into `static/assets/portfolio/`, save, and it shows up on the homepage list
+and gets its own page at `/portfolio/my-new-project.html` — no HTML or CSS to touch.
+
+## Previewing locally
+
+```
+hugo server
+```
+
+then open `http://localhost:1313`. Rebuilds automatically on save.
+
+## Deploying
+
+Push to `main`. GitHub Actions runs `hugo build` and publishes the result to GitHub Pages.
 
 ## Live site
 

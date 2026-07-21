@@ -1,0 +1,40 @@
+{{ define "main" -}}
+<h1 class="page-title">{{ .Title }}</h1>
+
+<h2 class="link-group-title">Rates overview</h2>
+{{ range .Params.rates }}
+<div class="rate-item">
+  <div class="rate-header">
+    <span class="rate-name">{{ .name }}</span>
+    <span class="rate-price">{{ .price }}</span>
+  </div>
+  <p class="rate-sub">{{ .sub }}</p>
+  <p class="rate-desc">{{ .desc }}</p>
+</div>
+{{ end }}
+
+<hr class="section-divider">
+
+<h2 class="link-group-title">Add-on services</h2>
+<div class="addons-list">
+  {{ range .Params.addons }}
+  <div class="addon-item">
+    <span>{{ .name }}</span>
+    <span>{{ .price }}</span>
+  </div>
+  {{ end }}
+</div>
+
+<hr class="section-divider">
+
+<h2 class="link-group-title">Terms &amp; conditions</h2>
+<div class="text">
+  {{ .Content }}
+</div>
+
+{{ with .Params.portfolio_link }}
+<hr class="section-divider">
+
+<p class="page-description" style="border-bottom:none;">{{ . | safeHTML }}</p>
+{{ end }}
+{{ end -}}

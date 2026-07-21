@@ -1,0 +1,20 @@
+{{ define "main" -}}
+<h1 class="page-title">{{ .Title }}</h1>
+
+{{ with .Params.sub_link_url }}
+<p class="page-description"><a href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ $.Params.sub_link_label }}</a></p>
+{{ end }}
+
+<div class="link-list">
+  {{ range .Params.nav }}
+  <a href="{{ .url }}"{{ if .external }} target="_blank" rel="noopener noreferrer"{{ end }}>
+    <span>{{ .label }}</span>
+    <span>{{ if .external }}↗{{ else }}→{{ end }}</span>
+  </a>
+  {{ end }}
+</div>
+
+{{ with .Params.footer_text }}
+<p class="page-description" style="border-bottom:none;margin-top:32px;">{{ . | safeHTML }}</p>
+{{ end }}
+{{ end -}}
