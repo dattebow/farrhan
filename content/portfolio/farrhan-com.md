@@ -1,6 +1,8 @@
 ---
 title: "farrhan.com"
 date: 2026-07-20
+aliases:
+  - "/portfolio/farrhan-com.html"
 date_display: "Since 2026"
 category: "Personal"
 bodyClass: "page-project"

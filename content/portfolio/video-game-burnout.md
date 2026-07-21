@@ -1,6 +1,8 @@
 ---
 title: "the struggle of video game burnout"
 date: 2024-12-05
+aliases:
+  - "/portfolio/video-game-burnout.html"
 category: "Personal"
 bodyClass: "page-project"
 description: "A dattebow video essay."

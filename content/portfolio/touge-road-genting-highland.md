@@ -1,6 +1,8 @@
 ---
 title: "Internet's Most Infamous Touge Road - Genting Highland"
 date: 2024-01-04
+aliases:
+  - "/portfolio/touge-road-genting-highland.html"
 category: "Client work"
 bodyClass: "page-project"
 description: "Video edit for class_shift."

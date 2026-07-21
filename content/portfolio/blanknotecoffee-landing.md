@@ -1,6 +1,8 @@
 ---
 title: "Blank Note Coffee"
 date: 2026-06-28
+aliases:
+  - "/portfolio/blanknotecoffee-landing.html"
 category: "Client work"
 bodyClass: "page-project"
 description: "Web design project for a cafe in TTDI Shah Alam."

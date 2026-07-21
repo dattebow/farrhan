@@ -1,6 +1,8 @@
 ---
 title: "Obsidian vault"
 date: 2022-01-01
+aliases:
+  - "/portfolio/obsidian-vault.html"
 date_display: "Since 2022"
 category: "Personal"
 bodyClass: "page-project"

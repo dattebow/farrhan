@@ -1,6 +1,8 @@
 ---
 title: "lost your passion for gaming?"
 date: 2024-12-17
+aliases:
+  - "/portfolio/lost-passion-for-gaming.html"
 category: "Personal"
 bodyClass: "page-project"
 description: "A dattebow video essay."

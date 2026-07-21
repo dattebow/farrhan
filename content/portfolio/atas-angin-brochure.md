@@ -1,6 +1,8 @@
 ---
 title: "Atas Angin Brochure"
 date: 2026-06-09
+aliases:
+  - "/portfolio/atas-angin-brochure.html"
 category: "Personal"
 bodyClass: "page-project"
 description: "Personal print design."

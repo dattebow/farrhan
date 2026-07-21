@@ -1,6 +1,8 @@
 ---
 title: "Equipment"
 layout: "equipment"
+aliases:
+  - "/pages/equipment.html"
 description: "Gear used for video production, audio, and daily work."
 categories:
   - id: "audio"

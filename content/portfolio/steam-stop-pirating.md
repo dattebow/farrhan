@@ -1,6 +1,8 @@
 ---
 title: "How Steam Made Me Stop Pirating Games (Sort Of)"
 date: 2026-06-13
+aliases:
+  - "/portfolio/steam-stop-pirating.html"
 category: "Personal"
 bodyClass: "page-project"
 description: "A dattebow video essay."

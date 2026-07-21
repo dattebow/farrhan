@@ -1,6 +1,8 @@
 ---
 title: "VOD scrubbing"
 layout: "service-detail"
+aliases:
+  - "/pages/vod-scrubbing.html"
 bodyClass: "page-project"
 description: "VOD scrubbing and highlight clipping services."
 rates:

@@ -1,6 +1,8 @@
 ---
 title: "An educator, a creator and a mother of 10 kids? ft. Ms Qiwiie #EP7"
 date: 2025-10-24
+aliases:
+  - "/portfolio/ms-qiwiie-ep7.html"
 category: "Client work"
 bodyClass: "page-project"
 description: "Video edit for Nasi Lemak Date."

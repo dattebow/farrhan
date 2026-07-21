@@ -1,6 +1,8 @@
 ---
 title: "Video editing"
 layout: "service-detail"
+aliases:
+  - "/pages/video-editing.html"
 bodyClass: "page-project"
 description: "Video editing services. Editing since 2014."
 rates:
@@ -23,7 +25,7 @@ addons:
     price: "RM50 per round"
   - name: "Rush delivery (24hr turnaround)"
     price: "+50% of project fee"
-portfolio_link: 'See examples of this work on my <a href="/pages/portfolio.html">portfolio →</a>'
+portfolio_link: 'See examples of this work on my <a href="/portfolio/">portfolio →</a>'
 ---
 
 Thank you for choosing me for your video editing needs. Please take a moment to read through these terms carefully.

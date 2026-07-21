@@ -1,12 +1,16 @@
 baseURL: "https://farrhan.com/"
 title: "farrhan."
 locale: "en"
-uglyURLs: true
+uglyURLs: false
 disableKinds:
   - "RSS"
   - "taxonomy"
   - "term"
   - "section"
+
+permalinks:
+  page:
+    pages: "/:contentbasename/"
 
 params:
   description: "Video editor since 2014. Bassist · Headphone collector · JRPG enjoyer."

@@ -1,6 +1,8 @@
 ---
 title: "Portfolio"
 layout: "portfolio-hub"
+aliases:
+  - "/pages/portfolio.html"
 description: "Video editing, web design, and more."
 groups:
   - "Personal"

@@ -1,6 +1,8 @@
 ---
 title: "Hello John"
 date: 2026-06-28
+aliases:
+  - "/portfolio/hellojohn-landing.html"
 category: "Client work"
 bodyClass: "page-project"
 description: "Web design project for a restaurant in TTDI Shah Alam."

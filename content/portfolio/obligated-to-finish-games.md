@@ -1,6 +1,8 @@
 ---
 title: "why we feel obligated to finish games"
 date: 2026-02-11
+aliases:
+  - "/portfolio/obligated-to-finish-games.html"
 category: "Personal"
 bodyClass: "page-project"
 description: "A dattebow video essay."
