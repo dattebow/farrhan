@@ -22,4 +22,10 @@ faq:
 
 You're on it right now!
 
-A portfolio site built from scratch- made it because I wanted somewhere to point clients to, and because having a proper domain opens up a lot of doors. It also doubles as a hub for my self-hosted services.
+Built by hand, twice now. The first version was hand-written HTML, one page at a time, no templating, no shortcuts. It worked, but changing anything meant editing raw markup every time, even for something as small as adding a new portfolio entry.
+
+Moved onto Hugo in July 2026. Content lives in `content/` as plain markdown, templates live in `layouts/` as HTML, and Hugo combines the two into the actual site. Splitting it that way means adding a new project is just a new markdown file and a screenshot dropped into the right folder, no HTML involved. The old version couldn't do that.
+
+The whole thing runs on two colours only, a dark blue and a milky white, with Spectral for headings and Satoshi for everything else. No accent colours, no exceptions- that constraint was deliberate from the start, and it means every visual decision has to come from type and spacing instead of reaching for a new colour when something needs to stand out.
+
+Hosted on GitHub Pages, deployed through GitHub Actions on every push to main. `public/` is gitignored and rebuilt from scratch each time, so there's nothing to hand-edit there even if I wanted to. It also doubles as a hub for my self-hosted services.

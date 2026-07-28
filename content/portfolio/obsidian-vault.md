@@ -24,3 +24,9 @@ faq:
 I've been building this since 2022. It's where everything goes - notes, projects, finances, a media library, journals. Fully private, nothing to link to. But it's the thing I've spent the most time on, so it's here.
 
 Moved away from Notion because I wanted to actually own my files. Plain markdown, stored locally, nothing on anyone else's server.
+
+Obsidian's just the storage layer now. An AI coding assistant sits on top of it and does most of the day-to-day work, routed through a root file that points every conversation at the right reference doc depending on what's being discussed- finances, academics, a car I'm restoring, freelance work- and none of those load unless the conversation touches them. Keeps things fast, and keeps context from one part of my life bleeding into another.
+
+The habit the whole system is built around is capture. Whenever something worth remembering comes up mid-conversation, a decision, a new fact, a project update, it gets written to the right file immediately, not saved for later. Later never happens. There's a note-writing pipeline too- paste in a rough transcript or a stream-of-consciousness voice memo, and it comes back as a clean, properly tagged note in my own voice instead of a generic summary. That took a long time to tune, and it's still not perfect.
+
+The one place fully off-limits, even to the assistant when I ask it to search the vault, is my own journal.

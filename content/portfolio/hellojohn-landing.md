@@ -24,3 +24,5 @@ Warm. Hearty. Unpretentious.
 Hello John is the food side of a shared lot in TTDI Jaya, Shah Alam - operating alongside Blank Note Coffee. While Blank Note handles the drinks, Hello John handles everything else.
 
 Named after no one in particular and everyone who's ever asked "what should we eat?" - this is the companion site to the Blank Note Coffee project, built as an extension of the same assignment.
+
+Built right alongside Blank Note Coffee as the food half of the same assignment, same two-week window, same light amendment process. Splitting it into two sites instead of one meant the cross-linking between them (Hello John's drinks tab pointing to Blank Note, Blank Note's food tab pointing back) had to work properly, which was more about keeping two separate builds consistent with each other than it was difficult on its own.

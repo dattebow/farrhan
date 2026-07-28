@@ -22,3 +22,5 @@ faq:
 Urban. Industrial. Casual.
 
 That's how the owner of Blank Note Coffee- a cafe in TTDI Shah Alam- describes the place. This was my final project for my Art and Design course at INTI International College Subang Jaya.
+
+Started because the cafe's actual menu was a bit messy, and I figured a site would do a better job than their social media at helping customers find hours, location, and what's on the menu. Finished in about two weeks, and it turned out to be one of the easier assignments I've had, my lecturer only came back with a handful of amendments the whole way through.

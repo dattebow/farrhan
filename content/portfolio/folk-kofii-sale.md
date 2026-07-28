@@ -13,3 +13,5 @@ image_alt: "Folk Kofii Sale"
 ---
 
 Social media promo graphic for Folk Kofii.
+
+Made for their social media, planned about a day ahead of when it needed to go up. Pretty much full creative freedom on this one, the only real brief was to keep it close to how their other posts looked so it read as the same aesthetic rather than a one-off.
