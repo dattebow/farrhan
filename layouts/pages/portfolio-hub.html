@@ -77,10 +77,12 @@
     </div>
     {{ end }}
     <div class="portfolio-bar-info">
-      <span class="portfolio-bar-title">{{ $item.Title }}</span>
+      <div class="portfolio-bar-title-row">
+        <span class="portfolio-bar-title">{{ $item.Title }}</span>
+        <span class="portfolio-bar-date">{{ $item.Params.date_display | default ($item.Date.Format "2006-01-02") }}</span>
+      </div>
       <span class="portfolio-bar-desc">{{ $item.Params.description }}</span>
     </div>
-    <span class="portfolio-bar-date">{{ $item.Params.date_display | default ($item.Date.Format "2006-01-02") }}</span>
   </a>
   {{ end }}
 </div>

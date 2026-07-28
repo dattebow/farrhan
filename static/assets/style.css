@@ -453,7 +453,13 @@ code {
   min-width: 0;
 }
 
-.portfolio-bar-title,
+.portfolio-bar-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
 .portfolio-bar-desc {
   display: block;
   white-space: nowrap;
@@ -466,6 +472,11 @@ code {
   font-family: var(--font-display);
   font-size: 18px;
   line-height: 1.25;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  mask-image: linear-gradient(to right, black 85%, transparent 100%);
 }
 
 .portfolio-bar-desc {
@@ -479,23 +490,11 @@ code {
   font-size: var(--fs-label);
   opacity: 0.5;
   white-space: nowrap;
-  padding-top: 2px;
 }
 
 @media (max-width: 720px) {
-  .portfolio-bar {
-    flex-wrap: wrap;
-    row-gap: 4px;
-  }
-
   .portfolio-bar-thumb {
     width: 72px;
-  }
-
-  .portfolio-bar-date {
-    flex-basis: 100%;
-    padding-top: 0;
-    padding-left: 92px;
   }
 }
 
