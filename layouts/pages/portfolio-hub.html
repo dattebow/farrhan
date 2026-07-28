@@ -6,9 +6,9 @@
   <a href="#projects">Projects <span>↓</span></a>
 </div>
 
-<div id="cv"></div>
+<div class="hub-block" id="cv">
 {{ with .Params.skills }}
-<h2 class="link-group-title" style="margin-top:32px;">Skills</h2>
+<h2 class="link-group-title">Skills</h2>
 <div class="skills-list">
   {{ range . }}
   <div class="skills-item">
@@ -62,16 +62,13 @@
   {{ end }}
 </div>
 {{ end }}
+</div>
 
-<hr class="section-divider" id="projects" style="margin-top:40px;">
+<div class="hub-block" id="projects">
+<h2 class="link-group-title">Projects</h2>
 {{ $portfolio := where site.RegularPages "Type" "portfolio" }}
-{{ range .Params.groups }}
-{{ $group := . }}
-{{ $items := where $portfolio "Params.category" $group }}
-{{ if $items }}
-<h2 class="link-group-title" style="margin-top:32px;">{{ $group }}</h2>
 <div class="portfolio-bar-list">
-  {{ range $items.ByDate.Reverse }}
+  {{ range $portfolio.ByDate.Reverse }}
   {{ $item := . }}
   <a href="{{ $item.RelPermalink }}" class="portfolio-bar">
     {{ with $item.Params.image }}
@@ -87,6 +84,5 @@
   </a>
   {{ end }}
 </div>
-{{ end }}
-{{ end }}
+</div>
 {{ end -}}

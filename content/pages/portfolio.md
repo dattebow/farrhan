@@ -4,9 +4,6 @@ layout: "portfolio-hub"
 aliases:
   - "/pages/portfolio.html"
 description: "Video editing, web design, and more."
-groups:
-  - "Personal"
-  - "Client work"
 skills:
   - category: "Editing"
     items: "Adobe Premiere Pro, colour grading, sound design, subtitling/captions"

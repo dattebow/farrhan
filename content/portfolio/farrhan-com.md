@@ -6,7 +6,7 @@ aliases:
 date_display: "Since 2026"
 category: "Personal"
 bodyClass: "page-project"
-description: "A portfolio site built from scratch. No frameworks, no templates."
+description: "Personal portfolio site, built from scratch. No frameworks, no templates."
 link_label: "farrhan.com"
 link_url: "https://farrhan.com"
 image: "/assets/portfolio/farrhan-screenshot.png"

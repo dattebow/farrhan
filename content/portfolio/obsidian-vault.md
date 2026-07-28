@@ -6,7 +6,7 @@ aliases:
 date_display: "Since 2022"
 category: "Personal"
 bodyClass: "page-project"
-description: "A private Obsidian vault I've been building since 2022."
+description: "Personal, private Obsidian vault I've been building since 2022."
 link_label: "Personal knowledge base"
 image: "/assets/portfolio/obsidian-screenshot.PNG"
 image_alt: "Obsidian vault"

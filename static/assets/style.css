@@ -245,6 +245,23 @@ code {
   margin-bottom: 8px;
 }
 
+/* ── HUB BLOCK (portfolio hub page: CV vs Projects) ── */
+.hub-block {
+  padding: 32px;
+  border: 1px solid var(--brand-2);
+  border-radius: var(--radius);
+}
+
+.hub-block + .hub-block {
+  margin-top: 40px;
+}
+
+@media (max-width: 720px) {
+  .hub-block {
+    padding: 24px;
+  }
+}
+
 /* ── FAQ ── */
 .faq-list {
   margin-top: 32px;
