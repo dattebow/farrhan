@@ -11,7 +11,7 @@
   {{ range . }}
   <div class="faq-item">
     <p class="faq-q">{{ .q }}</p>
-    <p class="faq-a">{{ .a | safeHTML }}</p>
+    <p class="faq-a">{{ .a | replaceRE "%age%" (partial "age.html" $) | safeHTML }}</p>
   </div>
   {{ end }}
 </div>

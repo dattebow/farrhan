@@ -1,0 +1,8 @@
+{{- /* Current age, computed at build time from params.birthdate (YYYY-MM-DD). */ -}}
+{{- $birth := time.AsTime site.Params.birthdate -}}
+{{- $now := now -}}
+{{- $age := sub $now.Year $birth.Year -}}
+{{- if lt ($now.Format "0102") ($birth.Format "0102") -}}
+  {{- $age = sub $age 1 -}}
+{{- end -}}
+{{- $age -}}

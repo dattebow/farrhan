@@ -6,7 +6,7 @@ aliases:
 description: "Video editor since 2014. Bassist · Headphone collector · JRPG enjoyer."
 faq:
   - q: "How old are you?"
-    a: "23"
+    a: "%age%"
   - q: "Where are you from?"
     a: "Kuala Lumpur"
   - q: "What is your MBTI?"

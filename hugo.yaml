@@ -13,6 +13,7 @@ permalinks:
     pages: "/:contentbasename/"
 
 params:
+  birthdate: "2002-12-05"
   description: "Video editor since 2014. Bassist · Headphone collector · JRPG enjoyer."
   ogImage: "/assets/og-image.png"
 
