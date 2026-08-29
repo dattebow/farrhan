@@ -6,6 +6,12 @@ on:
   push:
     branches: ["main"]
 
+  # Daily rebuild so build-time values (the age on the About page) roll
+  # over without waiting for a push. 17:00 UTC is 01:00 the next day in
+  # Kuala Lumpur, so the birthday flips just after local midnight.
+  schedule:
+    - cron: "0 17 * * *"
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
