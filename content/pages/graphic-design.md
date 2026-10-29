@@ -9,7 +9,7 @@ rates:
   - name: "Visual assets"
     price: "RM40 - RM80 (approx. $10 - $20 USD)"
     sub: "Thumbnails, social posts, ads, etc."
-    desc: "Eye-catching graphics optimized for clicks and mobile visibility."
+    desc: "Single images built to read clearly at small sizes, on a phone screen or in a busy feed."
   - name: "Identity systems"
     price: "RM250 - RM450 (approx. $55 - $100 USD)"
     sub: "Streamer packs, channel art, podcast covers, etc."

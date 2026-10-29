@@ -23,7 +23,7 @@ faq:
 
 Hi! I'm Farrhan, though many know me as Dip. I'm a video editor and designer based in Kuala Lumpur. It started in 2014 with nothing more than a few funny voice call recordings and a YouTube channel - all of my old videos are deleted, but you can try your best to find them.
 
-These days I edit freelance - video work for clients like Grass Konbini alongside VTubers and live streamers. The brief usually sits somewhere between corporate polish and the controlled chaos of shitposting, and figuring out where to land is the part I enjoy most. Working across those styles keeps things from getting stale.
+I've edited for clients like Grass Konbini, alongside VTubers and live streamers. The brief usually sits somewhere between corporate polish and the controlled chaos of shitposting, and figuring out where to land is the part I enjoy most. Working across those styles keeps things from getting stale.
 
 I run a YouTube channel called dattebow too. Long-form essay videos about games, tech, whatever I feel like making. No schedule, no trend-chasing. Just videos I'd want to watch.
 
